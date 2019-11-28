@@ -4,6 +4,7 @@ import { Switch, Route, NavLink } from 'react-router-dom'
 import { data } from './data';
 import Helmet from 'react-helmet'
 import LandingPage from './components/LandingPage/LandingPage'
+import { v1 as uuidv1 } from 'uuid'
 
 const Header = props => {
   return (
@@ -14,7 +15,7 @@ const Header = props => {
       <nav>
         {data.map(item => {
           return (
-            <NavLink className='nav-link' exact activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
+            <NavLink key={uuidv1()} className='nav-link' exact activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
           )
         })}
       </nav>
@@ -44,10 +45,30 @@ class App extends Component {
         <Header />
         <main>
           <Switch>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/">
+              <LandingPage />
+            </Route>
+            <Route path="/oferta">
+              <p>oferta</p>
+            </Route>
+            <Route path="/projekty">
+              <p>projekty</p>
+            </Route>
+            <Route path="/pracownia">
+              <p>pracownia</p>
+            </Route>
+            <Route path="/nagrody">
+              <p>nagrody</p>
+            </Route>
+            <Route path="/kontakt">
+              <p>kontakt</p>
+            </Route>
+            <Route path="/blog">
+              <p>kontakt</p>
+            </Route>
             {data.map(item => {
               return (
-                <Route path={`/projects/${item.url}`}>
+                <Route key={uuidv1()} path={`/projects/${item.url}`}>
                   <Project url={item.url} data={item.text} />
                 </Route>
               )

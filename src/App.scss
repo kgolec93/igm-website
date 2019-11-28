@@ -9,7 +9,7 @@
   }
   main {
     flex: auto;
-    
+
   }
 }
 
@@ -27,14 +27,21 @@
 footer {
   background-color: #888;
   padding: 16px 128px;
+  background: white;
+  z-index: 99;
+  box-shadow: 0px 0px 6px 2px #33333362;;
+
 }
 
 header {
+  background: white;
+
   ///// dev only
   // background-color: rgb(212, 212, 212);
   /////
-  box-shadow: 0px 0px 6px 2px #33333321;;
 
+  box-shadow: 0px 0px 6px 2px #33333362;;
+  z-index: 99;
   display: flex;
   padding: 20px 128px;
   width: 100%;
@@ -77,7 +84,14 @@ header {
         color 0.3s ease-in-out;
       font-family: 'Quicksand', sans-serif;
       margin: 0px 16px;
+
     }
 
+  }
+}
+
+@keyframes navFadeIn {
+  to {
+    opacity: 0;
   }
 }
