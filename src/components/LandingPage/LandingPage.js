@@ -83,6 +83,17 @@ export class LandingPage extends Component {
                                 key={uuidv1()}
                             />
                         )
+                    })}                    
+                    {images.map(item => {
+                        return (
+                            <img
+                                id={item.id}
+                                ref={`img${images.indexOf(item)}`}
+                                src={item.src}
+                                alt={`sliderImage${images.indexOf(item)}`}
+                                key={uuidv1()}
+                            />
+                        )
                     })}
                 </div>
             </div>
