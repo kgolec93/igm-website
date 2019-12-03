@@ -1,0 +1,24 @@
+button {
+    position: fixed;
+    bottom: 128px;
+    left: 64px;
+}
+
+.imageslideshow-container {
+    display: flex;
+    min-height: 100vh;
+    justify-content: flex-start;
+    // transition: transform 0.5s ease-in-out;
+    .imageslideshow-item {
+        width: 100vw !important;
+        height: 100vh !important;
+        img {
+            height: 100%;
+            width: 100vw;
+            object-fit: cover;
+        }
+    }
+
+
+
+}
