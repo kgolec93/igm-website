@@ -4,6 +4,7 @@ import { Switch, Route, NavLink } from 'react-router-dom'
 import { data } from './data';
 import Helmet from 'react-helmet'
 import LandingPage from './components/LandingPage/LandingPage'
+import Projects from './components/Projects/Projects'
 import { v1 as uuidv1 } from 'uuid'
 
 const Header = props => {
@@ -52,7 +53,7 @@ class App extends Component {
               <p>oferta</p>
             </Route>
             <Route path="/projekty">
-              <p>projekty</p>
+              <Projects />
             </Route>
             <Route path="/pracownia">
               <p>pracownia</p>
