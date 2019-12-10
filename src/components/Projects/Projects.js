@@ -95,6 +95,12 @@ export class Projects extends Component {
         }
     }
 
+    selectFilter = (target) => {
+        setTimeout(() => {
+            this.setState({ selected: target })
+        }, 300)
+    }
+
     render() {
         return (
             <div className='projectsContainer'>
@@ -103,43 +109,26 @@ export class Projects extends Component {
                     <div className="projectsFilteringNav">
                         <p
                             className={this.state.selected === 'all' ? 'selected' : null}
-                            onClick={() => {
-                                this.setState({ selected: null }); 
-                                setTimeout(()=>{
-                                    this.setState({ selected: 'all' })
-                                }, 300)
-                            }}
+                            onClick={() => this.selectFilter('all')}
+
                         >
                             wszystkie</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'housing' ? 'selected' : null}
-                            onClick={() => {
-                                this.setState({ selected: null }); 
-                                setTimeout(()=>{
-                                    this.setState({ selected: 'housing' })
-                                }, 300)
-                            }}
+                            onClick={() => this.selectFilter('housing')}
                         >mieszkaniowe</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'services' ? 'selected' : null}
-                            onClick={() => {
-                                this.setState({ selected: null }); 
-                                setTimeout(()=>{
-                                    this.setState({ selected: 'services' })
-                                }, 300)
-                            }}
+                            onClick={() => this.selectFilter('services')}
+
                         >usługowe</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'commercial' ? 'selected' : null}
-                            onClick={() => {
-                                this.setState({ selected: null }); 
-                                setTimeout(()=>{
-                                    this.setState({ selected: 'commercial' })
-                                }, 300)
-                            }}
+                            onClick={() => this.selectFilter('commercial')}
+
                         >komercyjne</p>
                     </div>
                 </div>
@@ -147,33 +136,33 @@ export class Projects extends Component {
                 <div className="portfolioItemsContainer">
                     <FlipMove
                         staggerDurationBy="20"
-                        duration={100}
+                        duration={400}
                         typeName={null}
                         appearAnimation='elevator'
                     >
-                        {this.state.selected === 'all' ?
-                            testItems.map((item) => {
-                                return (
-                                    <PortfolioItem
-                                        key={uuidv1()}
-                                        name={item.name}
-                                        type={item.type}
-                                    />
-                                )
-                            })
-                            :
-                            testItems.filter(i => {
-                                return i.type === this.state.selected
-                            }).map((item) => {
-                                return (
-                                    <PortfolioItem
-                                        key={uuidv1()}
-                                        name={item.name}
-                                        type={item.type}
-                                    />
-                                )
-                            })
-                        }
+                    {this.state.selected === 'all' ?
+                        testItems.map((item) => {
+                            return (
+                                <PortfolioItem
+                                    key={`itemKey${testItems.indexOf(item)}`}
+                                    name={item.name}
+                                    type={item.type}
+                                />
+                            )
+                        })
+                        :
+                        testItems.filter(i => {
+                            return i.type === this.state.selected
+                        }).map((item) => {
+                            return (
+                                <PortfolioItem
+                                    key={`itemKey${testItems.indexOf(item)}`}
+                                    name={item.name}
+                                    type={item.type}
+                                />
+                            )
+                        })
+                    }
                     </FlipMove>
 
                 </div>

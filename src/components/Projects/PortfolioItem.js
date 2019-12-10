@@ -3,6 +3,7 @@ import FlipMove from 'react-flip-move';
 import { v1 as uuidv1 } from 'uuid'
 
 export class PortfolioItem extends Component {
+
     render() {
         return (
 
