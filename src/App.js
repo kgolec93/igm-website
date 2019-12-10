@@ -58,9 +58,6 @@ class App extends Component {
             <Route path="/pracownia">
               <p>pracownia</p>
             </Route>
-            <Route path="/nagrody">
-              <p>nagrody</p>
-            </Route>
             <Route path="/kontakt">
               <p>kontakt</p>
             </Route>

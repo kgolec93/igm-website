@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Projects.scss'
 import FlipMove from 'react-flip-move';
 import { v1 as uuidv1 } from 'uuid'
+import { PortfolioItem } from './PortfolioItem';
 
 const testItems = [
     {
@@ -102,40 +103,62 @@ export class Projects extends Component {
                     <div className="projectsFilteringNav">
                         <p
                             className={this.state.selected === 'all' ? 'selected' : null}
-                            onClick={() => this.setState({ selected: 'all' })}
+                            onClick={() => {
+                                this.setState({ selected: null }); 
+                                setTimeout(()=>{
+                                    this.setState({ selected: 'all' })
+                                }, 300)
+                            }}
                         >
                             wszystkie</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'housing' ? 'selected' : null}
-                            onClick={() => this.setState({ selected: 'housing' })}
+                            onClick={() => {
+                                this.setState({ selected: null }); 
+                                setTimeout(()=>{
+                                    this.setState({ selected: 'housing' })
+                                }, 300)
+                            }}
                         >mieszkaniowe</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'services' ? 'selected' : null}
-                            onClick={() => this.setState({ selected: 'services' })}
+                            onClick={() => {
+                                this.setState({ selected: null }); 
+                                setTimeout(()=>{
+                                    this.setState({ selected: 'services' })
+                                }, 300)
+                            }}
                         >usługowe</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'commercial' ? 'selected' : null}
-                            onClick={() => this.setState({ selected: 'commercial' })}
+                            onClick={() => {
+                                this.setState({ selected: null }); 
+                                setTimeout(()=>{
+                                    this.setState({ selected: 'commercial' })
+                                }, 300)
+                            }}
                         >komercyjne</p>
                     </div>
                 </div>
 
                 <div className="portfolioItemsContainer">
                     <FlipMove
-                        staggerDurationBy="30"
-                        duration={200}
+                        staggerDurationBy="20"
+                        duration={100}
                         typeName={null}
                         appearAnimation='elevator'
                     >
                         {this.state.selected === 'all' ?
                             testItems.map((item) => {
                                 return (
-                                    <div key={uuidv1()} className={`portfolioItem ${item.type}`}>
-                                        <p style={{ color: `white` }}>{item.type}</p>
-                                    </div>
+                                    <PortfolioItem
+                                        key={uuidv1()}
+                                        name={item.name}
+                                        type={item.type}
+                                    />
                                 )
                             })
                             :
@@ -143,15 +166,17 @@ export class Projects extends Component {
                                 return i.type === this.state.selected
                             }).map((item) => {
                                 return (
-                                    <div key={uuidv1()} className={`portfolioItem ${item.type}`}>
-                                        <p style={{ color: `white` }}>{item.type}</p>
-                                    </div>
+                                    <PortfolioItem
+                                        key={uuidv1()}
+                                        name={item.name}
+                                        type={item.type}
+                                    />
                                 )
                             })
                         }
                     </FlipMove>
-                </div>
 
+                </div>
             </div>
         )
     }
