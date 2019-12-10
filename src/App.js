@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { Switch, Route, NavLink } from 'react-router-dom'
-import { data } from './data';
+import { data, testItems } from './data';
 import Helmet from 'react-helmet'
 import LandingPage from './components/LandingPage/LandingPage'
 import Projects from './components/Projects/Projects'
@@ -64,10 +64,10 @@ class App extends Component {
             <Route path="/blog">
               <p>kontakt</p>
             </Route>
-            {data.map(item => {
+            {testItems.map(item => {
               return (
-                <Route key={uuidv1()} path={`/projects/${item.url}`}>
-                  <Project url={item.url} data={item.text} />
+                <Route key={item.url} path={`/projects/${item.url}`}>
+                  <Project url={item.url} data={item.name} />
                 </Route>
               )
             })}

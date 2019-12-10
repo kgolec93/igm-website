@@ -3,89 +3,7 @@ import './Projects.scss'
 import FlipMove from 'react-flip-move';
 import { v1 as uuidv1 } from 'uuid'
 import { PortfolioItem } from './PortfolioItem';
-
-const testItems = [
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'commercial'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'services'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'services'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'services'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'commercial'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'services'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'commercial'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'commercial'
-    },
-]
+import { testItems } from '../../data'
 
 export class Projects extends Component {
     constructor() {
@@ -96,9 +14,7 @@ export class Projects extends Component {
     }
 
     selectFilter = (target) => {
-        setTimeout(() => {
-            this.setState({ selected: target })
-        }, 300)
+        this.setState({ selected: target })
     }
 
     render() {
@@ -135,34 +51,36 @@ export class Projects extends Component {
 
                 <div className="portfolioItemsContainer">
                     <FlipMove
-                        staggerDurationBy="20"
-                        duration={400}
+                        staggerDurationBy="10"
+                        duration={300}
                         typeName={null}
                         appearAnimation='elevator'
                     >
-                    {this.state.selected === 'all' ?
-                        testItems.map((item) => {
-                            return (
-                                <PortfolioItem
-                                    key={`itemKey${testItems.indexOf(item)}`}
-                                    name={item.name}
-                                    type={item.type}
-                                />
-                            )
-                        })
-                        :
-                        testItems.filter(i => {
-                            return i.type === this.state.selected
-                        }).map((item) => {
-                            return (
-                                <PortfolioItem
-                                    key={`itemKey${testItems.indexOf(item)}`}
-                                    name={item.name}
-                                    type={item.type}
-                                />
-                            )
-                        })
-                    }
+                        {this.state.selected === 'all' ?
+                            testItems.map((item) => {
+                                return (
+                                    <PortfolioItem
+                                        key={`itemKey${testItems.indexOf(item)}`}
+                                        name={item.name}
+                                        type={item.type}
+                                        url={item.url}
+                                    />
+                                )
+                            })
+                            :
+                            testItems.filter(i => {
+                                return i.type === this.state.selected
+                            }).map((item) => {
+                                return (
+                                    <PortfolioItem
+                                        key={`itemKey${testItems.indexOf(item)}`}
+                                        name={item.name}
+                                        type={item.type}
+                                        url={item.url}
+                                    />
+                                )
+                            })
+                        }
                     </FlipMove>
 
                 </div>
