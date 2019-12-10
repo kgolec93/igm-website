@@ -3,89 +3,7 @@ import './Projects.scss'
 import FlipMove from 'react-flip-move';
 import { v1 as uuidv1 } from 'uuid'
 import { PortfolioItem } from './PortfolioItem';
-
-const testItems = [
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'commercial'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'services'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'services'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'services'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'commercial'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'services'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'commercial'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'housing'
-    },
-    {
-        name: 'test name',
-        year: '2020',
-        type: 'commercial'
-    },
-]
+import { testItems } from '../../data'
 
 export class Projects extends Component {
     constructor() {
@@ -93,6 +11,10 @@ export class Projects extends Component {
         this.state = {
             selected: 'all'
         }
+    }
+
+    selectFilter = (target) => {
+        this.setState({ selected: target })
     }
 
     render() {
@@ -103,51 +25,34 @@ export class Projects extends Component {
                     <div className="projectsFilteringNav">
                         <p
                             className={this.state.selected === 'all' ? 'selected' : null}
-                            onClick={() => {
-                                this.setState({ selected: null }); 
-                                setTimeout(()=>{
-                                    this.setState({ selected: 'all' })
-                                }, 300)
-                            }}
+                            onClick={() => this.selectFilter('all')}
+
                         >
                             wszystkie</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'housing' ? 'selected' : null}
-                            onClick={() => {
-                                this.setState({ selected: null }); 
-                                setTimeout(()=>{
-                                    this.setState({ selected: 'housing' })
-                                }, 300)
-                            }}
+                            onClick={() => this.selectFilter('housing')}
                         >mieszkaniowe</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'services' ? 'selected' : null}
-                            onClick={() => {
-                                this.setState({ selected: null }); 
-                                setTimeout(()=>{
-                                    this.setState({ selected: 'services' })
-                                }, 300)
-                            }}
+                            onClick={() => this.selectFilter('services')}
+
                         >usługowe</p>
                         <p className='not-clickable'>/</p>
                         <p
                             className={this.state.selected === 'commercial' ? 'selected' : null}
-                            onClick={() => {
-                                this.setState({ selected: null }); 
-                                setTimeout(()=>{
-                                    this.setState({ selected: 'commercial' })
-                                }, 300)
-                            }}
+                            onClick={() => this.selectFilter('commercial')}
+
                         >komercyjne</p>
                     </div>
                 </div>
 
                 <div className="portfolioItemsContainer">
                     <FlipMove
-                        staggerDurationBy="20"
-                        duration={100}
+                        staggerDurationBy="10"
+                        duration={300}
                         typeName={null}
                         appearAnimation='elevator'
                     >
@@ -155,9 +60,10 @@ export class Projects extends Component {
                             testItems.map((item) => {
                                 return (
                                     <PortfolioItem
-                                        key={uuidv1()}
+                                        key={`itemKey${testItems.indexOf(item)}`}
                                         name={item.name}
                                         type={item.type}
+                                        url={item.url}
                                     />
                                 )
                             })
@@ -167,9 +73,10 @@ export class Projects extends Component {
                             }).map((item) => {
                                 return (
                                     <PortfolioItem
-                                        key={uuidv1()}
+                                        key={`itemKey${testItems.indexOf(item)}`}
                                         name={item.name}
                                         type={item.type}
+                                        url={item.url}
                                     />
                                 )
                             })
