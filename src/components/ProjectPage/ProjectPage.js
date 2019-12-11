@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './ProjectPage.scss'
-
+import { testProject } from '../../data'
 export class ProjectPage extends Component {
     render() {
         return (
@@ -16,17 +16,17 @@ export class ProjectPage extends Component {
                 <div className="projectContentContainer">
                     <div className="projectText">
                         <div className="titleContainer">
-                            <h1>Projekt budynku wielorodzinnego</h1>
-                            <h2>Kraków, Rynek Dębnicki</h2>
+                            <h1>{testProject.name}</h1>
+                            <h2>{testProject.location}</h2>
                         </div>
                         <div className="descritpionContainer">
 
                             <hr />
-                            <p><span className="italic">inwestor: &nbsp;</span>Janusz Kowalski</p>
-                            <p><span className="italic">projekt: &nbsp;</span>2019</p>
-                            <p><span className="italic">realizacja: &nbsp;</span>2020-2021</p>
+                            <p><span className="italic">inwestor: &nbsp;</span>{testProject.investor}</p>
+                            <p><span className="italic">projekt: &nbsp;</span>{testProject.projectDate}</p>
+                            <p><span className="italic">realizacja: &nbsp;</span>{testProject.buildingDate}</p>
                             <p className="descritpion">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                {testProject.descritpion}
                             </p>
                         </div>
                     </div>
