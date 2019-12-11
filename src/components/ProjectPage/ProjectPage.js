@@ -6,19 +6,22 @@ export class ProjectPage extends Component {
         return (
             <div className='projectPageContainer'>
                 <div className="returnBar">
-                    <p
-                        onClick={() => { window.history.back() }}
+                    <a
+                        href={'/projekty'}
                         className="returnButton"
                     >
                         ‹ powrót
-                    </p>
+                    </a>
                 </div>
                 <div className="projectContentContainer">
                     <div className="projectText">
-                        <h1>Projekt budynku wielorodzinnego</h1>
-                        <h2>Kraków, Rynek Dębnicki</h2>
-                        <hr />
+                        <div className="titleContainer">
+                            <h1>Projekt budynku wielorodzinnego</h1>
+                            <h2>Kraków, Rynek Dębnicki</h2>
+                        </div>
                         <div className="descritpionContainer">
+
+                            <hr />
                             <p><span className="italic">inwestor: &nbsp;</span>Janusz Kowalski</p>
                             <p><span className="italic">projekt: &nbsp;</span>2019</p>
                             <p><span className="italic">realizacja: &nbsp;</span>2020-2021</p>
