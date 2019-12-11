@@ -6,6 +6,7 @@ import Helmet from 'react-helmet'
 import LandingPage from './components/LandingPage/LandingPage'
 import Projects from './components/Projects/Projects'
 import { v1 as uuidv1 } from 'uuid'
+import ProjectPage from './components/ProjectPage/ProjectPage';
 
 const Header = props => {
   return (
@@ -67,7 +68,7 @@ class App extends Component {
             {testItems.map(item => {
               return (
                 <Route key={item.url} path={`/projects/${item.url}`}>
-                  <Project url={item.url} data={item.name} />
+                  <ProjectPage url={item.url} data={item.name} />
                 </Route>
               )
             })}

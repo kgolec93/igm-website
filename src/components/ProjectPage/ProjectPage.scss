@@ -1,0 +1,71 @@
+.projectPageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 64px;
+    .returnBar {
+        padding: 16px;
+        display: flex;
+        justify-content: flex-start;
+        .returnButton {
+            font-family: 'Quicksand', sans-serif;
+            color: #888;
+            transition: color 0.2s ease-in-out;
+            &:hover {
+                color: #333;
+                cursor: pointer;
+            }
+        }
+    }
+    .projectContentContainer {
+        display: flex;
+        width: 100%;
+        flex: auto;
+        .projectText {
+            flex: 2;
+            text-align: left;
+
+            h1 {
+                font-family: 'Quicksand', sans-serif;
+                font-weight: 100;
+                font-size: 1.6rem;
+            }
+            h2 {
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 100;
+                font-style: italic;
+                font-size: 1.3rem;
+            }
+            hr {
+                margin: 24px 0px;
+            }
+            .descritpionContainer {
+                p {
+                    font-weight: 300;
+                    .italic {
+                        font-style: italic;
+                    }
+                    &.descritpion {
+                        margin-top: 24px;
+                    }
+                }
+            }
+
+        }
+        .projectImages {
+            flex: 4;
+            position: relative;
+            padding: 0px 0px 64px 64px;
+            .imageContainer {
+
+                background-color: rgb(129, 129, 129);
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
