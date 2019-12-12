@@ -48,18 +48,22 @@ footer {
       display: flex;
       align-items: center;
       margin: 0px 24px;
-
+      &:nth-child(1){
+        img {
+          height: 12px;
+        }
+      }
       img {
         display: block;
         height: 16px;
         // width: auto;
         margin-right: 16px;
         opacity: 0.6;
-        
+
       }
       p {
         font-family: 'Quicksand', sans-serif;
-        font-weight: 100;
+        font-weight: 400;
         font-size: 1.1rem;
       }
     }
