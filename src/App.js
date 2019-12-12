@@ -6,36 +6,24 @@ import Helmet from 'react-helmet'
 import LandingPage from './components/LandingPage/LandingPage'
 import Projects from './components/Projects/Projects'
 import { v1 as uuidv1 } from 'uuid'
+import ProjectPage from './components/ProjectPage/ProjectPage';
 
 const Header = props => {
   return (
     <header>
-      <div className="logoContainer">
+      <a href='/' className="logoContainer">
         logo placeholder
-      </div>
+      </a>
       <nav>
         {data.map(item => {
           return (
-            <NavLink key={uuidv1()} className='nav-link' exact activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
+            <a key={uuidv1()} className={`nav-link ${window.location.href.includes(item.url) ? 'header-nav-active' : null }`} href={item.url}>{item.section}</a>
           )
         })}
       </nav>
 
     </header>
 
-  )
-}
-
-const Project = props => {
-  return (
-    <div>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{props.data} | IGM Pracownia Projektowa</title>
-        <link rel="canonical" href={`https://mysite.com/projects/${props.url}`} />
-      </Helmet>
-      <p>{props.data}</p>
-    </div>
   )
 }
 
@@ -52,7 +40,7 @@ class App extends Component {
             <Route path="/oferta">
               <p>oferta</p>
             </Route>
-            <Route path="/projekty">
+            <Route exact path="/projekty">
               <Projects />
             </Route>
             <Route path="/pracownia">
@@ -66,8 +54,8 @@ class App extends Component {
             </Route>
             {testItems.map(item => {
               return (
-                <Route key={item.url} path={`/projects/${item.url}`}>
-                  <Project url={item.url} data={item.name} />
+                <Route key={item.url} path={`/projekty/${item.url}`}>
+                  <ProjectPage url={item.url} data={item.name} />
                 </Route>
               )
             })}

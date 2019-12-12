@@ -1,0 +1,261 @@
+$coverAnimDuration: 0.1s;
+$coverAnimDelay: 2.4s;
+$contentAnimationDelay: 3s;
+@mixin itemsAnimation {
+    opacity: 0;
+    animation: itemsFadeIn 1s ease-in-out forwards $contentAnimationDelay+1s;
+}
+
+.projectPageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 64px;
+    .returnBar {
+        @include itemsAnimation();
+        padding: 16px;
+        display: flex;
+        justify-content: flex-start;
+        .returnButton {
+            font-family: 'Quicksand', sans-serif;
+            color: rgb(150, 150, 150);
+            transition: color 0.2s ease-in-out;
+            text-decoration: none;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: rgb(187, 187, 187);
+                transform-origin: left;
+                transform: scaleX(0);
+                transition: transform 0.2s ease-in-out;
+            }
+            &:hover {
+                color: rgb(27, 27, 27);
+                cursor: pointer;
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+    .projectContentContainer {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex: auto;
+        .projectText {
+            flex: 2;
+            text-align: left;
+            .titleContainer {
+                position: relative;
+                transform-origin: left;
+                &::after {
+                    transform: scaleX(0);
+                    transform-origin: right;
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: #333;
+
+                    animation: 
+                        coverAnimIn $coverAnimDuration linear forwards 2s,
+                        coverAnimOut $coverAnimDuration linear forwards $coverAnimDelay,
+                    ;
+                }
+                h1, h2 {
+                    opacity: 0;
+                    animation: displayText 0.01s linear forwards $coverAnimDelay;
+                }
+                h1 {
+                    font-family: 'Quicksand', sans-serif;
+                    font-weight: 100;
+                    font-size: 1.6rem;
+                }
+                h2 {
+                    font-family: 'Open Sans', sans-serif;
+                    font-weight: 100;
+                    font-style: italic;
+                    font-size: 1.2rem;
+                }
+            }
+
+
+            .descritpionContainer {
+                hr {
+                    margin: 24px 0px;
+                }
+                opacity: 0;
+                transform: translateY(-32px);
+                transform-origin: top;
+                animation: descriptionAnimation 1s ease-in-out forwards $contentAnimationDelay;
+                p {
+                    font-weight: 300;
+                    .italic {
+                        font-style: italic;
+                    }
+                    &.descritpion {
+                        margin-top: 24px;
+                    }
+                }
+            }
+
+        }
+        .projectImages {
+            @include itemsAnimation();
+            flex: 3;
+            position: relative;
+            padding: 0px 0px 64px 64px;
+            z-index: 99;
+            .imageContainer {
+                background-color: rgb(15, 15, 15);
+                border-radius: 6px;
+                width: 100%;
+                height: 100%;
+                overflow: hidden !important;
+                position: relative;
+                transition: width 0.1s ease-in-out, height 0.1s ease-in-out, position 0.1s ease-in-out;
+                &.fullscreen {
+                    z-index: 99;
+                    position: fixed;
+                    width: 100vw;
+                    height: 100vh;
+                    top: 0;
+                    left: 0;
+                    border-radius: 0px;
+                    .slideshowItem {
+                        img {
+                            object-fit: contain !important;
+                        }
+                    }
+                }
+                .sliderControls {
+                    position: absolute;
+                    height: 100%;
+                    width: 40px;
+                    display: flex;
+                    align-items: center;
+
+                    img {
+                        opacity: 0.5;
+                        transition: opacity 0.2s ease-in-out;
+                        width: 40px;
+                        &:hover {
+                            cursor: pointer;
+                            opacity: 0.9;
+                        }
+                    }
+                    &#prevArrow {
+                        left: 0;
+                        top: 0;
+                        img {
+                            transform-origin: center;
+                            transform: rotate(180deg);
+                        }
+                    }
+                    &#nextArrow {
+                        right: 0;
+                        top: 0;
+                    }
+                }
+                .fullscreenIcon {
+                    position: absolute;
+                    top: 16px;
+                    right: 16px;
+                    width: 32px;
+                    height: auto;
+                    display: block;
+                    // transform: translate(-50%, -50%);
+                    opacity: 0.5;
+                    transition: opacity 0.2s ease-in-out;
+                    &:hover {
+                        opacity: 1;
+                        cursor: pointer;
+                    }
+                }
+                // .overlayIn {
+                //     position: fixed;
+                //     top: 0;
+                //     left: 0;
+                //     width: 100vw;
+                //     height: 100vh;
+                //     z-index: 100;
+                //     background-color: #000;
+                //     transform: scaleX(0);
+                //     animation: 
+                //         coverAnimIn 0.2s linear forwards,
+                //         coverAnimOut 0.2s linear forwards 0.3s;
+                // }
+                .sliderContainer {
+                    display: flex;
+                    position: absolute;
+                    height: 100%;
+                    .slideshowItem {
+                        height: 100%;
+                        object-fit: contain;
+
+                        img {
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes descriptionAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@keyframes coverAnimIn {
+    from {
+        transform-origin: left;
+        transform: scaleX(0)
+    }
+    to {
+        transform-origin: left;
+        transform: scaleX(1)
+    }
+}
+
+@keyframes coverAnimOut {
+    from {
+        transform-origin: right;
+        transform: scaleX(1)
+    }
+    to {
+        transform-origin: right;
+        transform: scaleX(0)
+    }
+}
+
+@keyframes displayText {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes itemsFadeIn {
+    to {
+        opacity: 1;
+    }
+}
