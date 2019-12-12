@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { v1 as uuidv1 } from 'uuid'
 import './ImageSlideshow.scss'
-import { timingSafeEqual } from 'crypto';
 
 
 const images = [

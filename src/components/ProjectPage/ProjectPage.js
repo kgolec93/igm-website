@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import './ProjectPage.scss'
 import { testProject } from '../../data'
+import ImageSlider from './ImageSlider/ImageSlider'
+
+
 export class ProjectPage extends Component {
     render() {
         return (
@@ -31,9 +34,7 @@ export class ProjectPage extends Component {
                         </div>
                     </div>
                     <div className="projectImages">
-                        <div className="imageContainer">
-
-                        </div>
+                        <ImageSlider data={testProject} />
                     </div>
                 </div>
             </div>
