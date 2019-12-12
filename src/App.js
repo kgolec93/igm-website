@@ -11,13 +11,13 @@ import ProjectPage from './components/ProjectPage/ProjectPage';
 const Header = props => {
   return (
     <header>
-      <div className="logoContainer">
+      <a href='/' className="logoContainer">
         logo placeholder
-      </div>
+      </a>
       <nav>
         {data.map(item => {
           return (
-            <NavLink key={uuidv1()} className='nav-link' activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
+            <a key={uuidv1()} className={`nav-link ${window.location.href.includes(item.url) ? 'header-nav-active' : null }`} href={item.url}>{item.section}</a>
           )
         })}
       </nav>
@@ -40,7 +40,7 @@ class App extends Component {
             <Route path="/oferta">
               <p>oferta</p>
             </Route>
-            <Route path="/projekty">
+            <Route exact path="/projekty">
               <Projects />
             </Route>
             <Route path="/pracownia">
@@ -54,7 +54,7 @@ class App extends Component {
             </Route>
             {testItems.map(item => {
               return (
-                <Route key={item.url} path={`/projects/${item.url}`}>
+                <Route key={item.url} path={`/projekty/${item.url}`}>
                   <ProjectPage url={item.url} data={item.name} />
                 </Route>
               )

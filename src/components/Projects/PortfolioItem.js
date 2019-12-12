@@ -7,7 +7,7 @@ export class PortfolioItem extends Component {
     render() {
         return (
             <div className={`portfolioItem ${this.props.type}`}>
-                <a href={`projects/${this.props.url}`}>
+                <a href={`projekty/${this.props.url}`}>
                     <div className="portfolioItemOverlay">
                         <div className="textWrapper">
                             <p>{this.props.name}</p>

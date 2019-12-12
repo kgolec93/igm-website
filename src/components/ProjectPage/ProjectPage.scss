@@ -22,11 +22,28 @@ $contentAnimationDelay: 3s;
         justify-content: flex-start;
         .returnButton {
             font-family: 'Quicksand', sans-serif;
-            color: #888;
+            color: rgb(150, 150, 150);
             transition: color 0.2s ease-in-out;
+            text-decoration: none;
+            position: relative;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background-color: rgb(187, 187, 187);
+                transform-origin: left;
+                transform: scaleX(0);
+                transition: transform 0.2s ease-in-out;
+            }
             &:hover {
-                color: #333;
+                color: rgb(27, 27, 27);
                 cursor: pointer;
+                &::after {
+                    transform: scaleX(1);
+                }
             }
         }
     }
@@ -102,13 +119,13 @@ $contentAnimationDelay: 3s;
             padding: 0px 0px 64px 64px;
             z-index: 99;
             .imageContainer {
-                background-color: #333;
+                background-color: rgb(15, 15, 15);
                 border-radius: 6px;
                 width: 100%;
                 height: 100%;
                 overflow: hidden !important;
                 position: relative;
-                transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+                transition: width 0.1s ease-in-out, height 0.1s ease-in-out, position 0.1s ease-in-out;
                 &.fullscreen {
                     z-index: 99;
                     position: fixed;
@@ -167,6 +184,19 @@ $contentAnimationDelay: 3s;
                         cursor: pointer;
                     }
                 }
+                // .overlayIn {
+                //     position: fixed;
+                //     top: 0;
+                //     left: 0;
+                //     width: 100vw;
+                //     height: 100vh;
+                //     z-index: 100;
+                //     background-color: #000;
+                //     transform: scaleX(0);
+                //     animation: 
+                //         coverAnimIn 0.2s linear forwards,
+                //         coverAnimOut 0.2s linear forwards 0.3s;
+                // }
                 .sliderContainer {
                     display: flex;
                     position: absolute;
