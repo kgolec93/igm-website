@@ -14,6 +14,8 @@ $headerShadow: 0px 0px 6px 2px #33333328;
     // z-index: 80;
     flex: auto;
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -73,7 +75,7 @@ header {
         &::before, &::after {
           transform: scaleX(1);
         }
-        cursor: default;
+        // cursor: default;
       }
       
       padding: 4px 0px;
