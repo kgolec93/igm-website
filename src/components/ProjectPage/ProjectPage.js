@@ -5,6 +5,10 @@ import ImageSlider from './ImageSlider/ImageSlider'
 
 
 export class ProjectPage extends Component {
+    constructor() {
+        super();
+    }
+
     render() {
         return (
             <div className='projectPageContainer'>

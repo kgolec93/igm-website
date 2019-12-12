@@ -1,15 +1,11 @@
 export const data = [
     {
-        section: 'start',
-        url: '/'
+        section: 'projekty',
+        url: '/projekty'
     },
     {
         section: 'oferta',
         url: '/oferta'
-    },
-    {
-        section: 'projekty',
-        url: '/projekty'
     },
     {
         section: 'pracownia',

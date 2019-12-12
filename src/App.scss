@@ -11,6 +11,7 @@ $headerShadow: 0px 0px 6px 2px #33333328;
     color: inherit;
   }
   main {
+    // z-index: 80;
     flex: auto;
     position: relative;
   }
@@ -31,25 +32,15 @@ footer {
   background-color: #888;
   padding: 16px 128px;
   background: white;
-  z-index: 99;
+  z-index: 90;
   box-shadow: $headerShadow;
 }
 
 
 header {
   background: #ffffffe3;
-  // opacity: 0.5;
-  // transition: opacity 0.3s ease-in-out;
-  // &:hover {
-  //   opacity: 1;
-  // }
-
-  ///// dev only
-  // background-color: rgb(212, 212, 212);
-  /////
-
   box-shadow: $headerShadow;
-  z-index: 99;
+  z-index: 90;
   display: flex;
   padding: 20px 128px;
   width: 100%;

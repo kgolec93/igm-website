@@ -17,26 +17,13 @@ const Header = props => {
       <nav>
         {data.map(item => {
           return (
-            <NavLink key={uuidv1()} className='nav-link' exact activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
+            <NavLink key={uuidv1()} className='nav-link' activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
           )
         })}
       </nav>
 
     </header>
 
-  )
-}
-
-const Project = props => {
-  return (
-    <div>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>{props.data} | IGM Pracownia Projektowa</title>
-        <link rel="canonical" href={`https://mysite.com/projects/${props.url}`} />
-      </Helmet>
-      <p>{props.data}</p>
-    </div>
   )
 }
 
