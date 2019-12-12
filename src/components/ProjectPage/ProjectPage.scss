@@ -107,20 +107,28 @@ $contentAnimationDelay: 3s;
                 overflow: hidden !important;
                 position: relative;
                 .sliderControls {
-                    opacity: 0.1;
                     position: absolute;
                     height: 100%;
-                    background-color: rgb(177, 48, 48);
+                    width: 40px;
                     display: flex;
                     align-items: center;
-                    transition: opacity 0.2s ease-in-out;
-                    &:hover {
-                        cursor: pointer;
+
+                    img {
                         opacity: 0.5;
+                        transition: opacity 0.2s ease-in-out;
+                        width: 40px;
+                        &:hover {
+                            cursor: pointer;
+                            opacity: 0.9;
+                        }
                     }
                     &#prevArrow {
                         left: 0;
                         top: 0;
+                        img {
+                            transform-origin: center;
+                            transform: rotate(180deg);
+                        }
                     }
                     &#nextArrow {
                         right: 0;

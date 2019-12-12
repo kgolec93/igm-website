@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import arrow from '../../../assets/icons/slideshow/arrow.svg'
+import fullscreen from '../../../assets/icons/slideshow/fullscreen.svg'
 
 const transition = `transform 0.3s ease-in-out`
 
@@ -38,7 +40,7 @@ export class ImageSlider extends Component {
         window.addEventListener('resize', this.resizeWindow, false)
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         window.removeEventListener('resize', this.resizeWindow, false)
     }
 
@@ -47,7 +49,7 @@ export class ImageSlider extends Component {
     }
 
     changeImage = (e) => {
-        if (e.target.id === `prevArrow`) {
+        if (e === `prev`) {
             if (this.state.imageCounter === 0) {
                 this.setState({ transition: transition, imageCounter: this.state.data.images.length })
             }
@@ -57,8 +59,8 @@ export class ImageSlider extends Component {
         }
 
 
-        else if (e.target.id === `nextArrow`) {
-            if (this.state.imageCounter === this.state.data.images.length+1) {
+        else if (e === `next`) {
+            if (this.state.imageCounter === this.state.data.images.length + 1) {
                 this.setState({ transition: transition, imageCounter: 1 })
             }
             else {
@@ -113,12 +115,13 @@ export class ImageSlider extends Component {
                             />
                         </div>
                     </div>
-                    <div onClick={this.changeImage} className='sliderControls' id="prevArrow">
-                        PREV
+                    <div  className='sliderControls' id="prevArrow">
+                        <img onClick={()=>this.changeImage('prev')} src={arrow} alt="" />
                     </div>
-                    <div onClick={this.changeImage} className='sliderControls' id="nextArrow">
-                        NEXT
+                    <div className='sliderControls' id="nextArrow">
+                        <img onClick={()=>this.changeImage('next')} src={arrow} alt="" />
                     </div>
+                    
                 </div>
             )
         }
