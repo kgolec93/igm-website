@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-const transition = `transform 0.2s ease-in-out`
+const transition = `transform 0.3s ease-in-out`
 
 export class ImageSlider extends Component {
     constructor() {
@@ -35,15 +35,18 @@ export class ImageSlider extends Component {
             })
         }, 500)
 
-        window.addEventListener('resize', () => {
-            this.setState({ windowWidth: this.refs.imageContainer.clientWidth })
-        })
+        window.addEventListener('resize', this.resizeWindow, false)
+    }
 
+    componentWillUnmount(){
+        window.removeEventListener('resize', this.resizeWindow, false)
+    }
 
+    resizeWindow = () => {
+        this.setState({ windowWidth: this.refs.imageContainer.clientWidth })
     }
 
     changeImage = (e) => {
-        console.log(this.state.imageCounter)
         if (e.target.id === `prevArrow`) {
             if (this.state.imageCounter === 0) {
                 this.setState({ transition: transition, imageCounter: this.state.data.images.length })
