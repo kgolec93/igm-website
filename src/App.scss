@@ -36,6 +36,34 @@ footer {
   background: white;
   z-index: 90;
   box-shadow: $headerShadow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+    li {
+      display: flex;
+      align-items: center;
+      margin: 0px 24px;
+
+      img {
+        display: block;
+        height: 16px;
+        // width: auto;
+        margin-right: 16px;
+        opacity: 0.6;
+        
+      }
+      p {
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 100;
+        font-size: 1.1rem;
+      }
+    }
+  }
 }
 
 
