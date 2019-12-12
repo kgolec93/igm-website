@@ -21,7 +21,7 @@ export class Projects extends Component {
         return (
             <div className='projectsContainer'>
                 <div className="headers">
-                    <h1>Projekty</h1>
+                    <h1>Nasze Projekty</h1>
                     <div className="projectsFilteringNav">
                         <p
                             className={this.state.selected === 'all' ? 'selected' : null}
