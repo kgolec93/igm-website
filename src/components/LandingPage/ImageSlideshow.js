@@ -37,17 +37,18 @@ export class ImageSlideshow extends Component {
             this.setState({ windowWidth: window.innerWidth })
         })
         this.refs.imageslideshow.addEventListener('transitionend', () => {
-            if (this.state.imageCounter === 3){
+            if (this.state.imageCounter === 3) {
                 this.setState({
-                    imageCounter: 0, 
-                    transition: 'none'})
+                    imageCounter: 0,
+                    transition: 'none'
+                })
             }
         })
-        this.interval = setInterval(()=>{
+        this.interval = setInterval(() => {
             if (this.state.imageCounter === 3) {
                 this.setState({
                     transition: 'transform 1s ease-in-out',
-                    imageCounter: 0,    
+                    imageCounter: 0,
                 })
             }
             else {
@@ -63,7 +64,7 @@ export class ImageSlideshow extends Component {
         if (this.state.imageCounter === 3) {
             this.setState({
                 transition: 'transform 0.2s ease-in-out',
-                imageCounter: 0,  
+                imageCounter: 0,
             })
         }
         else {
@@ -77,9 +78,9 @@ export class ImageSlideshow extends Component {
 
     render() {
         return (
-            [<div
+            <div
                 className="imageslideshow-container"
-                style={{ transform: `translateX(${this.state.imageCounter * -this.state.windowWidth}px)`, transition: this.state.transition}}
+                style={{ transform: `translateX(${this.state.imageCounter * -this.state.windowWidth}px)`, transition: this.state.transition }}
                 ref='imageslideshow'
             >
                 {this.state.imageArray.map(item => {
@@ -93,9 +94,7 @@ export class ImageSlideshow extends Component {
                         </div>
                     )
                 })}
-            </div>,
-            <button onClick={this.nextImage}>ADD</button>
-            ]
+            </div>
         )
     }
 }

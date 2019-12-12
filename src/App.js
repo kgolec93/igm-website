@@ -8,6 +8,10 @@ import Projects from './components/Projects/Projects'
 import { v1 as uuidv1 } from 'uuid'
 import ProjectPage from './components/ProjectPage/ProjectPage';
 
+import phoneIcon from './assets/icons/misc/phone.svg'
+import mailIcon from './assets/icons/misc/mail.svg'
+import homeIcon from './assets/icons/misc/home.svg'
+
 const Header = props => {
   return (
     <header>
@@ -24,6 +28,27 @@ const Header = props => {
 
     </header>
 
+  )
+}
+
+const Footer = () => {
+  return(
+    <footer>
+      <ul>
+        <li>
+          <img src={mailIcon} alt="mail"/>
+          <p>biuro@igmarchitekci.pl</p>
+        </li>
+        <li>
+          <img src={phoneIcon} alt="phone"/>
+          <p>+48 606 606 606</p>
+        </li>
+        <li>
+          <img src={homeIcon} alt="home"/>
+          <p>ul. Wróblewskiego 29 Wrocław</p>
+        </li>
+      </ul>
+    </footer>
   )
 }
 
@@ -62,9 +87,7 @@ class App extends Component {
 
           </Switch>
         </main>
-        <footer>
-          footertext
-        </footer>
+        <Footer />
       </div>
     );
   }
