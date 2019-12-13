@@ -11,6 +11,7 @@ import ProjectPage from './components/ProjectPage/ProjectPage';
 import phoneIcon from './assets/icons/misc/phone.svg'
 import mailIcon from './assets/icons/misc/mail.svg'
 import homeIcon from './assets/icons/misc/home.svg'
+import { Contact } from './components/Contact/Contact';
 
 const Header = props => {
   return (
@@ -72,10 +73,10 @@ class App extends Component {
               <p>pracownia</p>
             </Route>
             <Route path="/kontakt">
-              <p>kontakt</p>
+              <Contact />
             </Route>
             <Route path="/blog">
-              <p>kontakt</p>
+              <p>blog</p>
             </Route>
             {testItems.map(item => {
               return (

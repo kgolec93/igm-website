@@ -8,20 +8,12 @@ export const data = [
         url: '/oferta'
     },
     {
-        section: 'pracownia',
-        url: '/pracownia'
-    },
-    {
-        section: 'nagrody',
-        url: '/nagrody'
+        section: 'o nas',
+        url: '/onas'
     },
     {
         section: 'kontakt',
         url: '/kontakt'
-    },
-    {
-        section: 'blog',
-        url: '/blog'
     },
 ]
 
