@@ -39,7 +39,8 @@ const images = [
 
 ]
 
-const transition = `transform 0.5s ease-in-out`
+const transition = `transform 1.5s ease-in-out`;
+const transitionDelay = 10000;
 
 
 export class ImageSlideshow extends Component {
@@ -49,7 +50,7 @@ export class ImageSlideshow extends Component {
             imageCounter: 0,
             imageArray: [],
             windowWidth: window.innerWidth,
-            transition: `transform 0.5s ease-in-out`
+            transition: transition
         }
     }
 
@@ -73,7 +74,7 @@ export class ImageSlideshow extends Component {
                 transition: transition,
                 imageCounter: this.state.imageCounter + 1,
             })
-        }, 16000)
+        }, transitionDelay)
     }
 
     render() {
