@@ -94,12 +94,25 @@ header {
   box-shadow: $headerShadow;
   z-index: 90;
   display: flex;
-  padding: 20px 128px;
+  padding: 10px 96px;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   .logoContainer {
-    font-style: italic;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    img {
+      height: 40px;
+      width: auto;
+    }
+    p {
+      font-family: 'Quicksand', sans-serif;
+      font-weight: 100;
+      font-size: 1.6rem;
+      margin-left: 16px;
+      color: rgb(172, 172, 172);
+    }
   }
   nav {
     display: flex;

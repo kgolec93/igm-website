@@ -13,11 +13,14 @@ import mailIcon from './assets/icons/misc/mail.svg'
 import homeIcon from './assets/icons/misc/home.svg'
 import { Contact } from './components/Contact/Contact';
 
+import logoBK from './assets/logo-bk.svg'
+
 const Header = props => {
   return (
     <header>
       <a href='/' className="logoContainer">
-        logo placeholder
+        <img src={logoBK} alt="igm-logo" />
+        <p>IGM_Architekci</p>
       </a>
       <nav>
         {data.map(item => {
