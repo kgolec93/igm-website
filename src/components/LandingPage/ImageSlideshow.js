@@ -1,23 +1,46 @@
 import React, { Component } from 'react'
 import { v1 as uuidv1 } from 'uuid'
 import './ImageSlideshow.scss'
+import img01 from '../../assets/landing-page/01.jpg'
+import img02 from '../../assets/landing-page/02.jpg'
+import img03 from '../../assets/landing-page/03.jpg'
+import img04 from '../../assets/landing-page/04.jpg'
+import img05 from '../../assets/landing-page/05.jpg'
+import img06 from '../../assets/landing-page/06.jpg'
+import img07 from '../../assets/landing-page/07.jpg'
+import img08 from '../../assets/landing-page/08.jpg'
 
 
 const images = [
     {
-        src: 'https://www.digitalarch.pl/static/media/88.7f6c38f6.jpg'
+        src: img01
     },
     {
-        src: 'https://www.digitalarch.pl/static/media/87.1149d03e.jpg'
+        src: img02
     },
     {
-        src: 'https://www.digitalarch.pl/static/media/83.c8822fbc.jpg'
+        src: img03
     },
     {
-        src: 'https://www.digitalarch.pl/static/media/88.7f6c38f6.jpg'
+        src: img04
+    },
+    {
+        src: img05
+    },
+    {
+        src: img06
+    },
+    {
+        src: img07
+    },
+    {
+        src: img08
     },
 
 ]
+
+const transition = `transform 1.5s ease-in-out`;
+const transitionDelay = 10000;
 
 
 export class ImageSlideshow extends Component {
@@ -27,7 +50,7 @@ export class ImageSlideshow extends Component {
             imageCounter: 0,
             imageArray: [],
             windowWidth: window.innerWidth,
-            transition: `transform 0.5s ease-in-out`
+            transition: transition
         }
     }
 
@@ -36,44 +59,22 @@ export class ImageSlideshow extends Component {
         window.addEventListener('resize', () => {
             this.setState({ windowWidth: window.innerWidth })
         })
+
         this.refs.imageslideshow.addEventListener('transitionend', () => {
-            if (this.state.imageCounter === 3) {
+            if (this.state.imageCounter === images.length) {
                 this.setState({
                     imageCounter: 0,
                     transition: 'none'
                 })
             }
         })
+
         this.interval = setInterval(() => {
-            if (this.state.imageCounter === 3) {
-                this.setState({
-                    transition: 'transform 1s ease-in-out',
-                    imageCounter: 0,
-                })
-            }
-            else {
-                this.setState({
-                    transition: 'transform 1s ease-in-out',
-                    imageCounter: this.state.imageCounter + 1,
-                })
-            }
-        }, 6000)
-    }
-
-    nextImage = () => {
-        if (this.state.imageCounter === 3) {
             this.setState({
-                transition: 'transform 0.2s ease-in-out',
-                imageCounter: 0,
+                transition: transition,
+                imageCounter: this.state.imageCounter + 1,
             })
-        }
-        else {
-            this.setState({
-                transition: 'transform 0.2s ease-in-out',
-                imageCounter: this.state.imageCounter + 1
-            })
-        }
-
+        }, transitionDelay)
     }
 
     render() {
@@ -94,6 +95,13 @@ export class ImageSlideshow extends Component {
                         </div>
                     )
                 })}
+                <div className="imageslideshow-item" >
+                    <img
+                        src={images[0].src}
+                        alt={`sliderImage0`}
+                        key={uuidv1()}
+                    />
+                </div>
             </div>
         )
     }

@@ -11,12 +11,16 @@ import ProjectPage from './components/ProjectPage/ProjectPage';
 import phoneIcon from './assets/icons/misc/phone.svg'
 import mailIcon from './assets/icons/misc/mail.svg'
 import homeIcon from './assets/icons/misc/home.svg'
+import { Contact } from './components/Contact/Contact';
+
+import logoBK from './assets/logo-bk.svg'
 
 const Header = props => {
   return (
     <header>
       <a href='/' className="logoContainer">
-        logo placeholder
+        <img src={logoBK} alt="igm-logo" />
+        <p>IGM_Architekci</p>
       </a>
       <nav>
         {data.map(item => {
@@ -37,15 +41,15 @@ const Footer = () => {
       <ul>
         <li>
           <img src={mailIcon} alt="mail"/>
-          <p>biuro@igmarchitekci.pl</p>
+          <a href='mailto:biuro@igmarchitekci.pl'>biuro@igmarchitekci.pl</a>
         </li>
         <li>
           <img src={phoneIcon} alt="phone"/>
-          <p>+48 606 606 606</p>
+          <a href='tel:+48696696696'>+48 606 606 606</a>
         </li>
         <li>
           <img src={homeIcon} alt="home"/>
-          <p>ul. Wróblewskiego 29 Wrocław</p>
+          <a href='https://www.google.com/maps/dir/51.1191217,17.0543808/MOI+ARCHITEKCI+Bartoszowicka+11/@51.1097851,17.0667035,14z/data=!3m1!4b1!4m11!1m2!2m1!1smoiarchitekci!4m7!1m0!1m5!1m1!1s0x470fc2aaa0a14591:0x4fb430c07432f5d7!2m2!1d17.1138315!2d51.0996264' target='blank'>ul. Wróblewskiego 29 Wrocław</a>
         </li>
       </ul>
     </footer>
@@ -72,10 +76,10 @@ class App extends Component {
               <p>pracownia</p>
             </Route>
             <Route path="/kontakt">
-              <p>kontakt</p>
+              <Contact />
             </Route>
             <Route path="/blog">
-              <p>kontakt</p>
+              <p>blog</p>
             </Route>
             {testItems.map(item => {
               return (
