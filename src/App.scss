@@ -61,10 +61,28 @@ footer {
         opacity: 0.6;
 
       }
-      p {
+      a {
         font-family: 'Quicksand', sans-serif;
         font-weight: 400;
         font-size: 1.1rem;
+        text-decoration: none;
+        position: relative;
+        &::after {
+          @include navDecoration();
+          transform-origin: left;
+          top: 100%;
+        }
+        &::before {
+          @include navDecoration();
+          transform-origin: right;
+          top: 0;
+        }
+        &:hover {
+          color: red;
+          &::before, &::after {
+            transform: scaleX(1);
+          }
+        }
       }
     }
   }
@@ -107,7 +125,6 @@ header {
         &::before, &::after {
           transform: scaleX(1);
         }
-        // cursor: default;
       }
       
       padding: 4px 0px;
