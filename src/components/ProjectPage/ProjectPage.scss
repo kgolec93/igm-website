@@ -9,7 +9,6 @@ $contentAnimationDelay: 3s;
 .projectPageContainer {
     position: absolute;
     top: 0;
-    // left: 0;
     width: 90vw;
     height: 100%;
     display: flex;
@@ -184,19 +183,6 @@ $contentAnimationDelay: 3s;
                         cursor: pointer;
                     }
                 }
-                // .overlayIn {
-                //     position: fixed;
-                //     top: 0;
-                //     left: 0;
-                //     width: 100vw;
-                //     height: 100vh;
-                //     z-index: 100;
-                //     background-color: #000;
-                //     transform: scaleX(0);
-                //     animation: 
-                //         coverAnimIn 0.2s linear forwards,
-                //         coverAnimOut 0.2s linear forwards 0.3s;
-                // }
                 .sliderContainer {
                     display: flex;
                     position: absolute;
@@ -208,6 +194,20 @@ $contentAnimationDelay: 3s;
                         img {
                             height: 100%;
                             object-fit: cover;
+                        }
+                    }
+                }
+                .dotsContainer {
+                    position: absolute;
+                    bottom: 12px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    ul {
+                        display: flex;
+                        list-style: none;
+                        justify-content: center;
+                        li {
+                            margin: 0px 4px;
                         }
                     }
                 }

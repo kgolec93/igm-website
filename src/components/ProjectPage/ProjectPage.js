@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './ProjectPage.scss'
 import { testProject } from '../../data'
 import ImageSlider from './ImageSlider/ImageSlider'
+import { Link } from 'react-router-dom'
 
 
 export class ProjectPage extends Component {
@@ -13,12 +14,12 @@ export class ProjectPage extends Component {
         return (
             <div className='projectPageContainer'>
                 <div className="returnBar">
-                    <a
-                        href={'/projekty'}
+                    <Link
+                        to={'/projekty'}
                         className="returnButton"
                     >
-                        ‹ powrót
-                    </a>
+                        ‹ wszystkie projekty
+                    </Link>
                 </div>
                 <div className="projectContentContainer">
                     <div className="projectText">
