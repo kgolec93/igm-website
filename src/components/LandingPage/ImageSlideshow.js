@@ -9,6 +9,7 @@ import img05 from '../../assets/landing-page/05.jpg'
 import img06 from '../../assets/landing-page/06.jpg'
 import img07 from '../../assets/landing-page/07.jpg'
 import img08 from '../../assets/landing-page/08.jpg'
+import img09 from '../../assets/landing-page/09.jpg'
 
 
 const images = [
@@ -17,6 +18,9 @@ const images = [
     },
     {
         src: img02
+    },    
+    {
+        src: img09
     },
     {
         src: img03
@@ -70,10 +74,13 @@ export class ImageSlideshow extends Component {
         })
 
         this.interval = setInterval(() => {
-            this.setState({
+            if (this.state.imageCounter === images.length+1) {
+                this.setState({imageCounter: 0})
+            }
+            else {this.setState({
                 transition: transition,
                 imageCounter: this.state.imageCounter + 1,
-            })
+            })}
         }, transitionDelay)
     }
 
