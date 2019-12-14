@@ -10,6 +10,7 @@ import img06 from '../../assets/landing-page/06.jpg'
 import img07 from '../../assets/landing-page/07.jpg'
 import img08 from '../../assets/landing-page/08.jpg'
 import img09 from '../../assets/landing-page/09.jpg'
+import { Link } from 'react-router-dom'
 
 
 const images = [
@@ -18,7 +19,7 @@ const images = [
     },
     {
         src: img02
-    },    
+    },
     {
         src: img09
     },
@@ -54,7 +55,8 @@ export class ImageSlideshow extends Component {
             imageCounter: 0,
             imageArray: [],
             windowWidth: window.innerWidth,
-            transition: transition
+            transition: transition,
+            showDetails: false,
         }
     }
 
@@ -74,13 +76,15 @@ export class ImageSlideshow extends Component {
         })
 
         this.interval = setInterval(() => {
-            if (this.state.imageCounter === images.length+1) {
-                this.setState({imageCounter: 0})
+            if (this.state.imageCounter === images.length + 1) {
+                this.setState({ imageCounter: 0 })
             }
-            else {this.setState({
-                transition: transition,
-                imageCounter: this.state.imageCounter + 1,
-            })}
+            else {
+                this.setState({
+                    transition: transition,
+                    imageCounter: this.state.imageCounter + 1,
+                })
+            }
         }, transitionDelay)
     }
 
@@ -93,12 +97,17 @@ export class ImageSlideshow extends Component {
             >
                 {this.state.imageArray.map(item => {
                     return (
-                        <div className="imageslideshow-item" >
+                        <div className="imageslideshow-item">
                             <img
                                 src={item.src}
                                 alt={`sliderImage${images.indexOf(item)}`}
                                 key={uuidv1()}
                             />
+                            <div className='detailsContainer'>
+                                <p>Kraków, Rynek Dębnicki</p>
+                                <p>2019-2020</p>
+                                <Link className='link' to='/projekty/test-url-1'>zobacz projekt ›</Link>
+                            </div>
                         </div>
                     )
                 })}

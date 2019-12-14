@@ -14,7 +14,6 @@ import homeIcon from './assets/icons/misc/home.svg'
 import { Contact } from './components/Contact/Contact';
 
 import logoBK from './assets/logo-bk.svg'
-import { LogoSvg } from './components/LogoSvg/LogoSvg';
 import LoaderPage from './components/LoaderPage/LoaderPage';
 
 const Header = props => {

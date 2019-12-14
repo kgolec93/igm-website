@@ -18,7 +18,7 @@ export class ProjectPage extends Component {
                         to={'/projekty'}
                         className="returnButton"
                     >
-                        ‹ powrót
+                        ‹ wszystkie projekty
                     </Link>
                 </div>
                 <div className="projectContentContainer">
