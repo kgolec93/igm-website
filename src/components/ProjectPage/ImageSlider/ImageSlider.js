@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import arrow from '../../../assets/icons/slideshow/arrow.svg'
 import fullscreen from '../../../assets/icons/slideshow/fullscreen.svg'
 import close from '../../../assets/icons/slideshow/close.svg'
+import { ImageDot } from '../../misc/ImageDot'
 
 const transition = `transform 0.3s ease-in-out`
 
@@ -12,6 +13,7 @@ export class ImageSlider extends Component {
             data: null,
             windowWidth: null,
             imageCounter: 1,
+            dotCounter: 0,
             transition: transition,
             fullscreen: false
         }
@@ -24,6 +26,7 @@ export class ImageSlider extends Component {
                 if (this.state.imageCounter === this.state.data.images.length + 1) {
                     this.setState({
                         imageCounter: 1,
+                        dotCounter: 0,
                         transition: 'none'
                     })
                     setTimeout(() => {
@@ -33,6 +36,7 @@ export class ImageSlider extends Component {
                 else if (this.state.imageCounter === 0) {
                     this.setState({
                         imageCounter: this.state.data.images.length,
+                        dotCounter: this.state.data.images.length - 1,
                         transition: 'none'
                     })
                 }
@@ -56,7 +60,7 @@ export class ImageSlider extends Component {
                 this.setState({ transition: transition, imageCounter: this.state.data.images.length })
             }
             else {
-                this.setState({ transition: transition, imageCounter: this.state.imageCounter - 1 })
+                this.setState({ transition: transition, imageCounter: this.state.imageCounter - 1, dotCounter: this.state.dotCounter - 1 })
             }
         }
 
@@ -66,7 +70,7 @@ export class ImageSlider extends Component {
                 this.setState({ transition: transition, imageCounter: 1 })
             }
             else {
-                this.setState({ transition: transition, imageCounter: this.state.imageCounter + 1 })
+                this.setState({ transition: transition, imageCounter: this.state.imageCounter + 1, dotCounter: this.state.dotCounter + 1 })
 
             }
         }
@@ -125,17 +129,39 @@ export class ImageSlider extends Component {
                     </div>
                     {
                         this.state.fullscreen ?
-                        <img onClick={() => this.setState({ windowWidth: this.state.initialWidth, fullscreen: false })}
-                            src={close} alt=""
-                            className="fullscreenIcon"
-                        />
-                        :
-                        <img onClick={() => this.setState({ initialWidth: this.state.windowWidth, windowWidth: window.innerWidth, fullscreen: true})}
-                        src={fullscreen} alt=""
-                        className="fullscreenIcon"
-                        />
+                            <img onClick={() => this.setState({ windowWidth: this.state.initialWidth, fullscreen: false })}
+                                src={close} alt=""
+                                className="fullscreenIcon"
+                            />
+                            :
+                            <img onClick={() => this.setState({ initialWidth: this.state.windowWidth, windowWidth: window.innerWidth, fullscreen: true })}
+                                src={fullscreen} alt=""
+                                className="fullscreenIcon"
+                            />
                     }
+                    <div className="dotsContainer">
+                        <ul>
+                            {this.state.data.images.map(item => {
+                                return (
+                                    <li onClick={(() => {
+                                        this.setState(
+                                            {
+                                                dotCounter: this.state.data.images.indexOf(item),
+                                                imageCounter: this.state.data.images.indexOf(item) + 1
+                                            }
+
+                                        )
+                                    })} >
+                                    <ImageDot
+                                        isActive={this.state.data.images.indexOf(item) === this.state.dotCounter ? true : false}
+                                    />
+                                    </li>
+                        )
+                    })}
+
+                        </ul>
                 </div>
+                </div >
             )
         }
     }

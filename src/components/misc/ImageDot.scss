@@ -1,0 +1,16 @@
+
+.dotSvg {
+    width: 24px;
+    .dot {
+        fill: #f3f3f300;
+        stroke:#f3f3f3;
+        stroke-width:3px;
+        &.active {
+            fill: #f3f3f3;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+}
