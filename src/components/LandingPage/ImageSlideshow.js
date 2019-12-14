@@ -9,6 +9,7 @@ import img05 from '../../assets/landing-page/05.jpg'
 import img06 from '../../assets/landing-page/06.jpg'
 import img07 from '../../assets/landing-page/07.jpg'
 import img08 from '../../assets/landing-page/08.jpg'
+import img09 from '../../assets/landing-page/09.jpg'
 
 
 const images = [
@@ -17,6 +18,9 @@ const images = [
     },
     {
         src: img02
+    },    
+    {
+        src: img09
     },
     {
         src: img03

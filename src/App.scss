@@ -40,6 +40,8 @@ footer {
   align-items: center;
   justify-content: center;
   ul {
+    opacity: 0;
+    animation: footerFadeIn 1s ease-in-out 1.5s forwards;
     list-style: none;
     display: flex;
     align-items: center;
@@ -102,6 +104,10 @@ header {
     display: flex;
     align-items: center;
     text-decoration: none;
+    position: relative;
+    top: -12px;
+    opacity: 0;
+    animation: navFadeIn 0.5s ease-in 0.5s forwards;
     img {
       height: 40px;
       width: auto;
@@ -144,7 +150,6 @@ header {
       position: relative;
       top: -12px;
       transition: 
-        border-bottom 0.2s ease-in-out,
         color 0.3s ease-in-out;
       font-family: 'Quicksand', sans-serif;
       margin: 0px 16px;
@@ -162,6 +167,12 @@ header {
 @keyframes navFadeIn {
   to {
     top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes footerFadeIn {
+  to {
     opacity: 1;
   }
 }

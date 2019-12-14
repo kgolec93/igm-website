@@ -1,0 +1,42 @@
+.loaderContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: loaderFadeOut 2s cubic-bezier(.53,.8,.6,.97) forwards 4.5s;
+    z-index: 200;
+    background-color: white;
+    .headerContainer {
+        overflow: hidden;
+        margin-left: 64px;
+        h1 {
+            font-family: 'Sulphur Point', sans-serif;
+            font-size: 5.5rem;
+            transform-origin: left;
+            transform: translateX(-100%);
+            animation: headerAnim 1.5s cubic-bezier(.53,.8,.6,.97) 2s forwards;
+        }
+    }
+
+}
+
+@keyframes loaderFadeOut {
+    90% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+        z-index: 0;
+    }
+}
+
+@keyframes headerAnim {
+    to {
+        transform: translateX(0);
+
+    }
+}

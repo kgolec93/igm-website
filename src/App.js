@@ -14,6 +14,8 @@ import homeIcon from './assets/icons/misc/home.svg'
 import { Contact } from './components/Contact/Contact';
 
 import logoBK from './assets/logo-bk.svg'
+import { LogoSvg } from './components/LogoSvg/LogoSvg';
+import LoaderPage from './components/LoaderPage/LoaderPage';
 
 const Header = props => {
   return (
@@ -25,7 +27,7 @@ const Header = props => {
       <nav>
         {data.map(item => {
           return (
-            <a key={uuidv1()} className={`nav-link ${window.location.href.includes(item.url) ? 'header-nav-active' : null }`} href={item.url}>{item.section}</a>
+            <a key={uuidv1()} className={`nav-link ${window.location.href.includes(item.url) ? 'header-nav-active' : null}`} href={item.url}>{item.section}</a>
           )
         })}
       </nav>
@@ -36,19 +38,19 @@ const Header = props => {
 }
 
 const Footer = () => {
-  return(
+  return (
     <footer>
       <ul>
         <li>
-          <img src={mailIcon} alt="mail"/>
+          <img src={mailIcon} alt="mail" />
           <a href='mailto:biuro@igmarchitekci.pl'>biuro@igmarchitekci.pl</a>
         </li>
         <li>
-          <img src={phoneIcon} alt="phone"/>
+          <img src={phoneIcon} alt="phone" />
           <a href='tel:+48696696696'>+48 606 606 606</a>
         </li>
         <li>
-          <img src={homeIcon} alt="home"/>
+          <img src={homeIcon} alt="home" />
           <a href='https://www.google.com/maps/dir/51.1191217,17.0543808/MOI+ARCHITEKCI+Bartoszowicka+11/@51.1097851,17.0667035,14z/data=!3m1!4b1!4m11!1m2!2m1!1smoiarchitekci!4m7!1m0!1m5!1m1!1s0x470fc2aaa0a14591:0x4fb430c07432f5d7!2m2!1d17.1138315!2d51.0996264' target='blank'>ul. Wróblewskiego 29 Wrocław</a>
         </li>
       </ul>
@@ -64,6 +66,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path="/">
+              <LoaderPage />
               <LandingPage />
             </Route>
             <Route path="/oferta">
@@ -80,6 +83,9 @@ class App extends Component {
             </Route>
             <Route path="/blog">
               <p>blog</p>
+            </Route>
+            <Route path="/test">
+              <LoaderPage />
             </Route>
             {testItems.map(item => {
               return (
