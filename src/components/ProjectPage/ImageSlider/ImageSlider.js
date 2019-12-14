@@ -147,7 +147,8 @@ export class ImageSlider extends Component {
                                         this.setState(
                                             {
                                                 dotCounter: this.state.data.images.indexOf(item),
-                                                imageCounter: this.state.data.images.indexOf(item) + 1
+                                                imageCounter: this.state.data.images.indexOf(item) + 1,
+                                                transition: transition
                                             }
 
                                         )
