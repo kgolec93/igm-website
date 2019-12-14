@@ -6,7 +6,8 @@ $animDelay: 1s;
 }
 
 @mixin animationData {
-    transform: translateY(-32px);
+    top: -32px;
+    position: relative;
     opacity: 0;
     animation: itemsIntroAnimation 0.5s ease-in-out forwards;
 }
@@ -212,6 +213,7 @@ $animDelay: 1s;
 @keyframes itemsIntroAnimation {
     to {
         opacity: 1;
-        transform: translateY(0);
+        top: 0px;
+        
     }
 }
