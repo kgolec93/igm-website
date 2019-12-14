@@ -70,10 +70,13 @@ export class ImageSlideshow extends Component {
         })
 
         this.interval = setInterval(() => {
-            this.setState({
+            if (this.state.imageCounter === images.length+1) {
+                this.setState({imageCounter: 0})
+            }
+            else {this.setState({
                 transition: transition,
                 imageCounter: this.state.imageCounter + 1,
-            })
+            })}
         }, transitionDelay)
     }
 
