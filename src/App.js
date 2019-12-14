@@ -20,14 +20,14 @@ import LoaderPage from './components/LoaderPage/LoaderPage';
 const Header = props => {
   return (
     <header>
-      <a href='/' className="logoContainer">
+      <NavLink to='/' className="logoContainer">
         <img src={logoBK} alt="igm-logo" />
         <p>IGM_Architekci</p>
-      </a>
+      </NavLink>
       <nav>
         {data.map(item => {
           return (
-            <a key={uuidv1()} className={`nav-link ${window.location.href.includes(item.url) ? 'header-nav-active' : null}`} href={item.url}>{item.section}</a>
+            <NavLink key={uuidv1()} className='nav-link' activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
           )
         })}
       </nav>
