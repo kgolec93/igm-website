@@ -2,6 +2,13 @@ import React from 'react'
 import './Contact.scss'
 import mapTemp from '../../assets/temp/map-temp.JPG'
 import logoBK from '../../assets/logo-bk.svg'
+import GoogleMapReact from 'google-map-react';
+
+
+const Marker = ({ text }) =>
+    <svg width="32" height='32'>
+        <circle cx="16" cy="16" r="10" stroke="red" strokeWidth="10" fill="none" />
+    </svg>;
 
 export const Contact = () => {
     return (
@@ -21,7 +28,16 @@ export const Contact = () => {
                 </div>
             </div>
             <div className="mapContainer">
-                <img src={mapTemp} alt="" id="map" />
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: 'AIzaSyB0sH8MpWuRhUOfKHm7a2sJoD5ndKgYFok' }}
+                    defaultCenter={{ lat: 51.104031, lng: 17.087235 }}
+                    defaultZoom={15}
+                >
+                    <Marker
+                        lat={51.104031}
+                        lng={17.087235}
+                    />
+                </GoogleMapReact>
             </div>
         </div>
     )
