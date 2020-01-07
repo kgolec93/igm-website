@@ -71,6 +71,7 @@ export class Projects extends Component {
                                         name={item.name}
                                         type={item.type}
                                         url={item.url}
+                                        image={item.image}
                                     />
                                 )
                             })
@@ -84,6 +85,7 @@ export class Projects extends Component {
                                         name={item.name}
                                         type={item.type}
                                         url={item.url}
+                                        image={item.image}
                                     />
                                 )
                             })
