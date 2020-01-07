@@ -103,7 +103,7 @@ $animDelay: 1s;
             animation-delay: $animDelay+0.6s;
             flex: 3;
             position: relative;
-            max-height: 80vh;
+            height: 80vh;
             padding: 0px 0px 64px 64px;
             z-index: 99;
             .imageContainer {
