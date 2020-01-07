@@ -4,7 +4,6 @@ import { testProject } from '../../data'
 import ImageSlider from './ImageSlider/ImageSlider'
 import { Link } from 'react-router-dom'
 
-
 export class ProjectPage extends Component {
     constructor() {
         super();

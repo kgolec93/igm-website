@@ -4,6 +4,7 @@ import FlipMove from 'react-flip-move';
 import { v1 as uuidv1 } from 'uuid'
 import { PortfolioItem } from './PortfolioItem';
 import { testItems } from '../../data'
+import { Parallax, Background } from 'react-parallax'
 
 export class Projects extends Component {
     constructor() {
@@ -20,7 +21,12 @@ export class Projects extends Component {
     render() {
         return (
             <div className='projectsContainer'>
-                <div className="headers">
+                <Parallax
+                    className="headers"
+                    strength={600}
+                    bgImage={'https://www.digitalarch.pl/static/media/04.81ed863c.jpg'}
+                    bgImageAlt="pracownia architektoniczna wrocław"
+                >
                     <h1>Nasze Projekty</h1>
                     <div className="projectsFilteringNav">
                         <p
@@ -47,7 +53,8 @@ export class Projects extends Component {
 
                         >komercyjne</p>
                     </div>
-                </div>
+
+                </Parallax>
 
                 <div className="portfolioItemsContainer">
                     <FlipMove
