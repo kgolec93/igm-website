@@ -22,91 +22,106 @@ export const testItems = [
         name: 'test name',
         year: '2020',
         type: 'housing',
-        url: 'test-url-1'
+        url: 'test-url-1',
+        image: 'https://www.digitalarch.pl/static/media/04.81ed863c.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'commercial',
-        url: 'test-url-2'
+        url: 'test-url-2',
+        image: 'https://www.digitalarch.pl/static/media/05.6098b1f9.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'housing',
-        url: 'test-url-3'
+        url: 'test-url-3',
+        image: 'https://www.digitalarch.pl/static/media/01.3c7d2219.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'services',
-        url: 'test-url-4'
+        url: 'test-url-4',
+        image: 'https://www.digitalarch.pl/static/media/02.904d9d8d.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'housing',
-        url: 'test-url-5'
+        url: 'test-url-5',
+        image: 'https://www.digitalarch.pl/static/media/04.81ed863c.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'services',
-        url: 'test-url-6'
+        url: 'test-url-6',
+        image: 'https://www.digitalarch.pl/static/media/02.904d9d8d.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'housing',
-        url: 'test-url-7'
+        url: 'test-url-7',
+        image: 'https://www.digitalarch.pl/static/media/04.81ed863c.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'services',
-        url: 'test-url-8'
+        url: 'test-url-8',
+        image: 'https://www.digitalarch.pl/static/media/05.6098b1f9.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'housing',
-        url: 'test-url-9'
+        url: 'test-url-9',
+        image: 'https://www.digitalarch.pl/static/media/02.904d9d8d.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'housing',
-        url: 'test-url-10'
+        url: 'test-url-10',
+        image: 'https://www.digitalarch.pl/static/media/04.81ed863c.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'commercial',
-        url: 'test-url-11'
+        url: 'test-url-11',
+        image: 'https://www.digitalarch.pl/static/media/02.904d9d8d.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'housing',
-        url: 'test-url-12'
+        url: 'test-url-12',
+        image: 'https://www.digitalarch.pl/static/media/02.904d9d8d.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'services',
-        url: 'test-url-13'
+        url: 'test-url-13',
+        image: 'https://www.digitalarch.pl/static/media/05.6098b1f9.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'commercial',
-        url: 'test-url-14'
+        url: 'test-url-14',
+        image: 'https://www.digitalarch.pl/static/media/02.904d9d8d.jpg'
     },
     {
         name: 'test name',
         year: '2020',
         type: 'housing',
-        url: 'test-url-15'
+        url: 'test-url-15',
+        image: 'https://www.digitalarch.pl/static/media/02.904d9d8d.jpg'
     }
 ]
 
