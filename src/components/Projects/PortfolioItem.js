@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import FlipMove from 'react-flip-move';
-import { v1 as uuidv1 } from 'uuid'
 import { Link } from 'react-router-dom'
 
 export class PortfolioItem extends Component {
