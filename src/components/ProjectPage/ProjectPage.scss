@@ -1,8 +1,8 @@
-$animDelay: 1s;
+$animDelay: 0.3s;
 
 @mixin itemsAnimation {
   opacity: 0;
-  animation: itemsFadeIn 1s ease-in-out forwards $animDelay + 1.2s;
+  animation: itemsFadeIn 1s ease-in-out forwards $animDelay;
 }
 
 @mixin animationData {
@@ -55,6 +55,7 @@ $animDelay: 1s;
     width: 100%;
     height: 100%;
     flex: auto;
+    flex-wrap: wrap;
     #portfolioHeaderImg {
       object-fit: cover;
       width: 100%;
@@ -64,19 +65,19 @@ $animDelay: 1s;
       display: flex;
       flex-direction: column;
       flex: 1;
+      min-width: 400px;
       .projectText {
         text-align: left;
         max-height: 70vh;
         padding: 0px 8px;
-        //   overflow: hidden;
         overflow-y: scroll;
-
         position: relative;
+
         &::-webkit-scrollbar {
           background: #c5c5c500;
           width: 8px;
           padding: 1px;
-          z-index: 10;
+          display: none;
         }
         &::-webkit-scrollbar-track {
           background: #7c7c7c00;
@@ -119,14 +120,12 @@ $animDelay: 1s;
             &.descritpion {
               margin-top: 24px;
               padding-bottom: 72px;
-              // overflow: scroll !important;
             }
           }
         }
       }
       .whiteOverlay {
         z-index: 9;
-
         position: relative;
         width: 100%;
         height: 72px;
@@ -142,17 +141,20 @@ $animDelay: 1s;
       flex: 3;
       position: relative;
       height: 70vh;
-      // padding: 0px 0px 64px 64px;
-      padding-left: 16px;
+      padding-left: 32px;
+      max-width: 130vh;
+      min-width: 1000px;
+
       z-index: 99;
       .imageContainer {
         background-color: rgb(15, 15, 15);
-        border-radius: 6px;
+        border-radius: 12px;
         width: 100%;
         height: 100%;
         overflow: hidden !important;
         position: relative;
         transition: width 0.1s ease-in-out, height 0.1s ease-in-out, position 0.1s ease-in-out;
+        box-shadow: 3px 3px 5px 2px #33333350;
         &.fullscreen {
           z-index: 99;
           position: fixed;
@@ -255,4 +257,10 @@ $animDelay: 1s;
     opacity: 1;
     top: 0px;
   }
+}
+
+@keyframes scrollBarAnimation {
+    to {
+        background-color: rgb(189, 189, 189);
+    }
 }

@@ -23,7 +23,7 @@ export class Projects extends Component {
             <div className='projectsContainer'>
                 <Parallax
                     className="headers"
-                    strength={600}
+                    strength={200}
                     bgImage={'https://www.digitalarch.pl/static/media/04.81ed863c.jpg'}
                     bgImageAlt="pracownia architektoniczna wrocław"
                 >

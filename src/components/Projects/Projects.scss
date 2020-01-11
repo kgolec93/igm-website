@@ -1,12 +1,13 @@
 .projectsContainer {
   width: 100vw;
-  min-width: 1200px;
+  // min-width: 1200px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0px 0px 4px 4px #2a2a2a1f;
   .headers {
-    width: 100%;
+    width: 100vw;
+    height: 200px;
     padding: 144px 0px;
     display: flex;
     flex-wrap: wrap;
@@ -37,6 +38,7 @@
       color: #f5f5f5;
     }
     .projectsFilteringNav {
+      height: 100%;
       display: flex;
       justify-content: space-between;
       & > p {
@@ -69,7 +71,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  min-width: 1200px;
+  // min-width: 1200px;
   background-color: #f9f9f9;
   // height: 100%;
 
