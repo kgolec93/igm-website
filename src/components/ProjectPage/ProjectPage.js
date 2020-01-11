@@ -21,22 +21,28 @@ export class ProjectPage extends Component {
                     </Link>
                 </div>
                 <div className="projectContentContainer">
-                    <div className="projectText">
-                        <div className="titleContainer">
-                            <h1>{testProject.name}</h1>
-                            <h2>{testProject.location}</h2>
-                        </div>
-                        <div className="descritpionContainer">
+                    <div className="wrapper">
+                        <div className="projectText">
+                            <div className="titleContainer">
+                                <h1>{testProject.name}</h1>
+                                <h2>{testProject.location}</h2>
+                            </div>
+                            <div className="descritpionContainer">
 
-                            <hr />
-                            <p><span className="italic">inwestor: &nbsp;</span>{testProject.investor}</p>
-                            <p><span className="italic">projekt: &nbsp;</span>{testProject.projectDate}</p>
-                            <p><span className="italic">realizacja: &nbsp;</span>{testProject.buildingDate}</p>
-                            <p className="descritpion">
-                                {testProject.descritpion}
-                            </p>
+                                <hr />
+                                <p><span className="italic">inwestor: &nbsp;</span>{testProject.investor}</p>
+                                <p><span className="italic">projekt: &nbsp;</span>{testProject.projectDate}</p>
+                                <p><span className="italic">realizacja: &nbsp;</span>{testProject.buildingDate}</p>
+                                <p className="descritpion">
+                                    {testProject.descritpion}
+                                </p>
+                            </div>
+
                         </div>
+                        <div className="whiteOverlay" />
                     </div>
+
+
                     <div className="projectImages">
                         <ImageSlider data={testProject} />
                     </div>
