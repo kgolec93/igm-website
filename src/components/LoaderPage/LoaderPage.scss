@@ -13,6 +13,7 @@
     .headerContainer {
         overflow: hidden;
         margin-left: 64px;
+        max-width: 100vw;
         h1 {
             font-family: 'Sulphur Point', sans-serif;
             font-size: 5.5rem;
@@ -39,5 +40,15 @@
     to {
         transform: translateX(0);
 
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .headerContainer {
+        margin-left: 16px !important;
+        h1 {
+            font-size: 8vw !important;
+
+        }
     }
 }
