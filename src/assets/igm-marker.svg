@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="952" height="335" viewBox="0 0 952 335">
+  <g id="Group_24" data-name="Group 24" transform="translate(-2680 1365)">
+    <path id="Path_7" data-name="Path 7" d="M421,275H26A26,26,0,0,1,0,249V26A26,26,0,0,1,26,0H926a26,26,0,0,1,26,26V249a26,26,0,0,1-26,26H531l-55,60Z" transform="translate(2680 -1365)" fill="#fff" opacity="0.78"/>
+    <g id="Group_23" data-name="Group 23" transform="translate(1301.38 2118.504)">
+      <path id="Path_4" data-name="Path 4" d="M303.308,1442.9v34.5l-6.8-3.742-2.505,1.4,9.308,5.376,9.3-5.376v-26.78Z" transform="translate(1176.152 -4772.45)" fill="#333" fill-rule="evenodd"/>
+      <path id="Path_5" data-name="Path 5" d="M598.2,1613.3v34.813l-6.9-4.039-2.4,1.332,9.3,5.376,9.257-5.376v-26.78Z" transform="translate(899.861 -4932.098)" fill="#333" fill-rule="evenodd"/>
+      <path id="Path_6" data-name="Path 6" d="M9.308,80.348l9.244,5.376V112.5l-9.244,5.332L0,112.5V37.533L65.02,0l65.02,37.533V112.5L65.02,149.993l-9.3-5.376,2.234-1.23,7.067,3.956,63.1-36.422.063-72.157L65.02,2.461,1.918,39.016l.063,71.494,7.326,4.436Z" transform="translate(1451.6 -3420.6)" fill="#333" fill-rule="evenodd"/>
+    </g>
+    <text id="IGM_Architekci" transform="translate(2917 -1198)" fill="#030303" font-size="103" font-family="SulphurPoint-Regular, Sulphur Point"><tspan x="0" y="0">IGM_Architekci</tspan></text>
+  </g>
+</svg>

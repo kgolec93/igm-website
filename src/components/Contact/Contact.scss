@@ -56,5 +56,9 @@
             width: 100%;
             object-fit: cover;
         }
+        #mapMarker {
+            width: 196px;
+            transform: translate(-50%, -100%);
+        }
     }
 }
