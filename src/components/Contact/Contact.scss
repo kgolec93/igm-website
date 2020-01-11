@@ -10,6 +10,18 @@
         text-align: left;
         display: flex;
         justify-content: center;
+        height: 100%;
+        align-items: center;
+        position: relative;
+        &::after {
+            content: '';
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            right: 32px;
+            background-color: #a7a7a7;
+        }
         .items {
             flex-direction: column;
             justify-content: center;
@@ -39,5 +51,10 @@
         width: 100%;
         border-radius: 12px;
         overflow: hidden;
+        #map {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
     }
 }
