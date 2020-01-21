@@ -26,6 +26,8 @@
       align-items: center;
       justify-content: space-between;
       padding: 0px 144px;
+      padding-top: 60px;
+
       h1 {
         font-family: "Quicksand", sans-serif;
         font-weight: 100;
@@ -171,6 +173,7 @@
     .contentWrapper {
       height: 300px !important;
       padding: 32px !important;
+      padding-top: 57px !important;
       .projectsFilteringNav {
         display: none !important;
       }

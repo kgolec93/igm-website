@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import arrow from '../../../assets/icons/slideshow/arrow.svg'
+import arrow from '../../../assets/svg/imageArrow.svg'
 import fullscreen from '../../../assets/icons/slideshow/fullscreen.svg'
 import close from '../../../assets/icons/slideshow/close.svg'
 import { ImageDot } from '../../misc/ImageDot'
@@ -14,31 +14,22 @@ export class ImageSlider extends Component {
             windowWidth: null,
             imageCounter: 1,
             dotCounter: 0,
-            transition: transition,
-            fullscreen: false
+            transition: transition
         }
     }
     componentDidMount() {
         this.setState({ data: this.props.data })
         setTimeout(() => {
+            ////stays local
             this.setState({ windowWidth: this.refs.imageContainer.clientWidth })
+            ////////
+
             this.refs.imageSlideshow.addEventListener('transitionend', () => {
-                if (this.state.imageCounter === this.state.data.images.length + 1) {
-                    this.setState({
-                        imageCounter: 1,
-                        dotCounter: 0,
-                        transition: 'none'
-                    })
-                    setTimeout(() => {
-                        this.setState({ transition: transition })
-                    }, 300)
+                if (this.props.imageCounter === this.props.images.length + 1) {
+                    this.props.transitionEnd(1, 0, 'none');
                 }
-                else if (this.state.imageCounter === 0) {
-                    this.setState({
-                        imageCounter: this.state.data.images.length,
-                        dotCounter: this.state.data.images.length - 1,
-                        transition: 'none'
-                    })
+                else if (this.props.imageCounter === 0) {
+                    this.props.transitionEnd(this.props.images.length, 0, 'none');
                 }
             })
         }, 500)
@@ -54,31 +45,6 @@ export class ImageSlider extends Component {
         this.setState({ windowWidth: this.refs.imageContainer.clientWidth })
     }
 
-    changeImage = (e) => {
-        if (e === `prev`) {
-            if (this.state.imageCounter === 0) {
-                this.setState({ transition: transition, imageCounter: this.state.data.images.length })
-            }
-            else {
-                this.setState({ transition: transition, imageCounter: this.state.imageCounter - 1, dotCounter: this.state.dotCounter - 1 })
-            }
-        }
-
-
-        else if (e === `next`) {
-            if (this.state.imageCounter === this.state.data.images.length + 1) {
-                this.setState({ transition: transition, imageCounter: 1 })
-            }
-            else {
-                this.setState({ transition: transition, imageCounter: this.state.imageCounter + 1, dotCounter: this.state.dotCounter + 1 })
-
-            }
-        }
-
-
-    }
-
-
     render() {
         if (this.state.data === null) {
             return (
@@ -87,27 +53,27 @@ export class ImageSlider extends Component {
         }
         else {
             return (
-                <div className={`imageContainer ${this.state.fullscreen ? 'fullscreen' : ''}`} ref='imageContainer'>
+                <div className={`imageContainer`} ref='imageContainer'>
                     <div
-                        style={{ transform: `translateX(${this.state.imageCounter * -this.state.windowWidth}px)`, transition: this.state.transition }}
+                        style={{ transform: `translateX(${this.props.imageCounter * -this.state.windowWidth}px)`, transition: this.props.transition }}
                         className="sliderContainer"
                         ref='imageSlideshow'
                     >
                         <div className="slideshowItem">
                             <img
                                 style={{ width: `${this.state.windowWidth}px` }}
-                                src={this.state.data.images[this.state.data.images.length - 1]}
-                                alt={`img-${this.state.data.images.length - 1}`}
+                                src={this.props.images[this.props.images.length - 1]}
+                                alt={`img-${this.props.images.length - 1}`}
                             />
                         </div>
                         {
-                            this.state.data.images.map(item => {
+                            this.props.images.map(item => {
                                 return (
                                     <div className="slideshowItem">
                                         <img
                                             style={{ width: `${this.state.windowWidth}px` }}
                                             src={item}
-                                            alt={`img-${this.state.data.images.indexOf(item)}`}
+                                            alt={`img-${this.props.images.indexOf(item)}`}
                                         />
                                     </div>
                                 )
@@ -116,32 +82,26 @@ export class ImageSlider extends Component {
                         <div className="slideshowItem">
                             <img
                                 style={{ width: `${this.state.windowWidth}px` }}
-                                src={this.state.data.images[0]}
+                                src={this.props.images[0]}
                                 alt={`img-0`}
                             />
                         </div>
                     </div>
                     <div className='sliderControls' id="prevArrow">
-                        <img onClick={() => this.changeImage('prev')} src={arrow} alt="" />
+                        <img onClick={() => this.props.slideImage('prev')} src={arrow} alt="" />
                     </div>
                     <div className='sliderControls' id="nextArrow">
-                        <img onClick={() => this.changeImage('next')} src={arrow} alt="" />
+                        <img onClick={() => this.props.slideImage('next')} src={arrow} alt="" />
                     </div>
-                    {
-                        this.state.fullscreen ?
-                            <img onClick={() => this.setState({ windowWidth: this.state.initialWidth, fullscreen: false })}
-                                src={close} alt=""
-                                className="fullscreenIcon"
-                            />
-                            :
-                            <img onClick={() => this.setState({ initialWidth: this.state.windowWidth, windowWidth: window.innerWidth, fullscreen: true })}
-                                src={fullscreen} alt=""
-                                className="fullscreenIcon"
-                            />
-                    }
-                    <div className="dotsContainer">
+
+                    <img onClick={this.props.openFullscreen.bind(this)}
+                        src={fullscreen} alt=""
+                        className="fullscreenIcon"
+                    />
+
+                    {/* <div className="dotsContainer">
                         <ul>
-                            {this.state.data.images.map(item => {
+                            {this.props.images.map(item => {
                                 return (
                                     <li onClick={(() => {
                                         this.setState(
@@ -153,15 +113,15 @@ export class ImageSlider extends Component {
 
                                         )
                                     })} >
-                                    <ImageDot
-                                        isActive={this.state.data.images.indexOf(item) === this.state.dotCounter ? true : false}
-                                    />
+                                        <ImageDot
+                                            isActive={this.state.data.images.indexOf(item) === this.state.dotCounter ? true : false}
+                                        />
                                     </li>
-                        )
-                    })}
+                                )
+                            })}
 
                         </ul>
-                </div>
+                    </div> */}
                 </div >
             )
         }
