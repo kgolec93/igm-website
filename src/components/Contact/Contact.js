@@ -2,13 +2,13 @@ import React from 'react'
 import './Contact.scss'
 import mapTemp from '../../assets/temp/map-temp.JPG'
 import logoBK from '../../assets/logo-bk.svg'
+import mapMarker from '../../assets/igm-marker.svg'
 import GoogleMapReact from 'google-map-react';
 
 
 const Marker = ({ text }) =>
-    <svg width="32" height='32'>
-        <circle cx="16" cy="16" r="10" stroke="red" strokeWidth="10" fill="none" />
-    </svg>;
+    <img src={mapMarker} alt="IGM Architekci" id="mapMarker"/>
+    ;
 
 export const Contact = () => {
     return (

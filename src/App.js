@@ -16,24 +16,61 @@ import { Contact } from './components/Contact/Contact';
 import logoBK from './assets/logo-bk.svg'
 import LoaderPage from './components/LoaderPage/LoaderPage';
 
-const Header = props => {
-  return (
-    <header>
-      <NavLink to='/' className="logoContainer">
-        <img src={logoBK} alt="igm-logo" />
-        <p>IGM_Architekci</p>
-      </NavLink>
-      <nav>
-        {data.map(item => {
-          return (
-            <NavLink key={uuidv1()} className='nav-link' activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
-          )
-        })}
-      </nav>
+import mobileMenu from './assets/svg/hamburgerMenu.svg'
+import closeMenu from './assets/svg/closeMenu.svg'
 
-    </header>
+class Header extends Component {
+  constructor() {
+    super();
+    this.state = {
+      mobileMenuOpen: false
+    }
+  }
+  render() {
+    return (
+      <header>
+        <NavLink
+          to='/'
+          className="logoContainer"
+          onClick={() => this.setState({ mobileMenuOpen: false })}
+        >
+          <img src={logoBK} alt="igm-logo" />
+          <p>IGM_Architekci</p>
+        </NavLink>
+        <nav className='desktopMenu'>
+          {data.map(item => {
+            return (
+              <NavLink key={uuidv1()} className='nav-link' activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
+            )
+          })}
+        </nav>
+        <nav className="mobileMenu">
+          <img
+            src={this.state.mobileMenuOpen ? closeMenu : mobileMenu}
+            className='mobileMenuIcon'
+            alt="Menu"
+            onClick={() => { this.setState({ mobileMenuOpen: !this.state.mobileMenuOpen }) }}
+          />
 
-  )
+          <div className={`${this.state.mobileMenuOpen ? 'open' : ''} mobileNavWrapper`}>
+            {data.map(item => {
+              return (
+                <NavLink
+                  key={uuidv1()}
+                  className='nav-link'
+                  activeClassName='header-nav-active'
+                  to={item.url}
+                  onClick={() => this.setState({ mobileMenuOpen: false })}
+                >
+                  {item.section}
+                </NavLink>
+              )
+            })}
+          </div>
+        </nav>
+      </header>
+    )
+  }
 }
 
 const Footer = () => {
@@ -66,7 +103,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path="/">
-              <LoaderPage />
+              {/* <LoaderPage /> */}
               <LandingPage />
             </Route>
             <Route path="/oferta">
