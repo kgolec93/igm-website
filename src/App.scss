@@ -33,7 +33,7 @@ $headerShadow: 0px 0px 6px 2px #33333328;
 footer {
   background-color: #ffffffe3;
   padding: 16px 128px;
-  z-index: 90;
+  z-index: 100;
   box-shadow: $headerShadow;
   display: flex;
   flex-wrap: wrap;
