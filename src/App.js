@@ -29,7 +29,11 @@ class Header extends Component {
   render() {
     return (
       <header>
-        <NavLink to='/' className="logoContainer">
+        <NavLink
+          to='/'
+          className="logoContainer"
+          onClick={() => this.setState({ mobileMenuOpen: false })}
+        >
           <img src={logoBK} alt="igm-logo" />
           <p>IGM_Architekci</p>
         </NavLink>

@@ -248,6 +248,14 @@ header {
           &:first-child {
             border-top: 1px solid rgba(136, 136, 136, 0.185);
           }
+          @for $i from 1 to 8 {
+            &:nth-child(#{$i}) {
+              animation: navFadeIn 0.4s ease-in #{$i * 0.1 + 0.2}s forwards;
+            }
+          }
+          &.header-nav-active {
+            background-color: #e2e2e2e1;
+          }
         }
       }
     }
