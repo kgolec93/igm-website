@@ -66,7 +66,7 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path="/">
-              <LoaderPage />
+              {/* <LoaderPage /> */}
               <LandingPage />
             </Route>
             <Route path="/oferta">

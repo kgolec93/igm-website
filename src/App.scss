@@ -31,16 +31,18 @@ $headerShadow: 0px 0px 6px 2px #33333328;
 }
 
 footer {
-  background-color: #888;
+  background-color: #ffffffe3;
   padding: 16px 128px;
-  background: white;
   z-index: 90;
   box-shadow: $headerShadow;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  position: relative;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
   ul {
     opacity: 0;
     animation: footerFadeIn 1s ease-in-out 1.5s forwards;
@@ -119,6 +121,9 @@ footer {
 header {
   background: #ffffffe3;
   box-shadow: $headerShadow;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 90;
   display: flex;
   flex-wrap: wrap;
