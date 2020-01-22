@@ -111,6 +111,7 @@ export class ProjectPage extends Component {
                             slideImage={this.slideImage}
                             transition={this.state.transition}
                             transitionEnd={this.transitionEnd}
+                        
                         />
                     </div>
                 </div>
@@ -129,6 +130,7 @@ export class ProjectPage extends Component {
                         slideImage={this.slideImage}
                         transition={this.state.transition}
                         transitionEnd={this.transitionEnd}
+                        drag={(p)=>this.setState({transition: p})}
                     />
                 </CSSTransition>
 
