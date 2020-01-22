@@ -11,6 +11,7 @@ export class FullscreenSlider extends Component {
         this.state = {
             windowWidth: null,
             initialX: 0,
+            delta: 0,
             dragActive: false
         }
     }
@@ -44,6 +45,7 @@ export class FullscreenSlider extends Component {
 
 
     startDrag = (e) => {
+        e.preventDefault();
         this.props.drag('none');
         if (e.type === 'touchstart') {
             this.setState({ initialX: e.touches[0].clientX, dragActive: true })
@@ -57,11 +59,9 @@ export class FullscreenSlider extends Component {
     handleDrag = (e) => {
         if (this.state.dragActive) {
             if (e.type === 'touchmove') {
-                e.preventDefault();
                 this.setState({ delta: e.touches[0].clientX - this.state.initialX })
             }
             else {
-                e.preventDefault();
                 this.setState({ delta: e.clientX - this.state.initialX })
             }
 
@@ -70,10 +70,10 @@ export class FullscreenSlider extends Component {
 
     endDrag = () => {
         this.props.drag(transition);
-        if (this.state.delta > window.innerWidth / 3) {
+        if (this.state.delta > window.innerWidth / 8) {
             this.props.slideImage('prev')
         }
-        else if (this.state.delta < (window.innerWidth / 2) * -1) {
+        else if (this.state.delta < (window.innerWidth / 8) * -1) {
             this.props.slideImage('next')
         }
         this.setState({ delta: 0, dragActive: false })
@@ -88,10 +88,12 @@ export class FullscreenSlider extends Component {
                         onTouchStart={this.startDrag}
                         onTouchMove={this.handleDrag}
                         onTouchEnd={this.endDrag}
+                        onTouchCancel={this.endDrag}
 
                         onMouseDown={this.startDrag}
                         onMouseMove={this.handleDrag}
                         onMouseUp={this.endDrag}
+                        onMouseLeave={this.endDrag}
 
                         style={{ transform: `translateX(${this.props.imageCounter * -this.state.windowWidth + this.state.delta}px)`, transition: this.props.transition}}
                         ref='imageSlideshow'

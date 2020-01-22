@@ -22,7 +22,6 @@ export class ProjectPage extends Component {
         super();
         this.state = {
             isFullscreen: false,
-            ////// TO BE CONNECTED TO THE SLIDERS
             imageCounter: 1,
             dotCounter: 0,
             transition: transition
@@ -64,6 +63,13 @@ export class ProjectPage extends Component {
         this.setState({
             imageCounter: imageCounter,
             dotCounter: dotCounter,
+            transition: transition
+        })
+    }
+
+    handleDotClick = (imageCounter, transition) => {
+        this.setState({
+            imageCounter: imageCounter,
             transition: transition
         })
     }
@@ -111,6 +117,10 @@ export class ProjectPage extends Component {
                             slideImage={this.slideImage}
                             transition={this.state.transition}
                             transitionEnd={this.transitionEnd}
+                            
+                            handleDotClick={(p, t)=>{this.setState({imageCounter: p, transition: t})}}
+                        
+                            drag={(p)=>this.setState({transition: p})}
                         
                         />
                     </div>

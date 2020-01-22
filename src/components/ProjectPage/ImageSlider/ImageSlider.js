@@ -10,20 +10,17 @@ export class ImageSlider extends Component {
     constructor() {
         super();
         this.state = {
-            data: null,
             windowWidth: null,
             imageCounter: 1,
             dotCounter: 0,
-            transition: transition
+            transition: transition,
+            delta: 0
         }
     }
     componentDidMount() {
-        this.setState({ data: this.props.data })
         setTimeout(() => {
-            ////stays local
-            this.setState({ windowWidth: this.refs.imageContainer.clientWidth })
-            ////////
 
+            this.setState({ windowWidth: this.refs.imageContainer.clientWidth })
             this.refs.imageSlideshow.addEventListener('transitionend', () => {
                 if (this.props.imageCounter === this.props.images.length + 1) {
                     this.props.transitionEnd(1, 0, 'none');
@@ -33,6 +30,7 @@ export class ImageSlider extends Component {
                 }
             })
         }, 500)
+        this.setState({ windowWidth: this.refs.imageContainer.clientWidth })
 
         window.addEventListener('resize', this.resizeWindow, false)
     }
@@ -45,6 +43,41 @@ export class ImageSlider extends Component {
         this.setState({ windowWidth: this.refs.imageContainer.clientWidth })
     }
 
+    startDrag = (e) => {
+        this.props.drag('none');
+        e.preventDefault();
+        if (e.type === 'touchstart') {
+            this.setState({ initialX: e.touches[0].clientX, dragActive: true })
+        }
+        else {
+            this.setState({ initialX: e.clientX, dragActive: true })
+        }
+
+    }
+
+    handleDrag = (e) => {
+        if (this.state.dragActive) {
+            if (e.type === 'touchmove') {
+                this.setState({ delta: e.touches[0].clientX - this.state.initialX })
+            }
+            else {
+                this.setState({ delta: e.clientX - this.state.initialX })
+            }
+        }
+    }
+
+    endDrag = () => {
+        this.props.drag(transition);
+
+        if (this.state.delta > this.state.windowWidth / 8) {
+            this.props.slideImage('prev')
+        }
+        else if (this.state.delta < (this.state.windowWidth / 8) * -1) {
+            this.props.slideImage('next')
+        }
+        this.setState({ delta: 0, dragActive: false })
+    }
+
     render() {
         if (this.state.data === null) {
             return (
@@ -55,7 +88,16 @@ export class ImageSlider extends Component {
             return (
                 <div className={`imageContainer`} ref='imageContainer'>
                     <div
-                        style={{ transform: `translateX(${this.props.imageCounter * -this.state.windowWidth}px)`, transition: this.props.transition }}
+                        onTouchStart={this.startDrag}
+                        onTouchMove={this.handleDrag}
+                        onTouchEnd={this.endDrag}
+                        onTouchCancel={this.endDrag}
+
+                        onMouseDown={this.startDrag}
+                        onMouseMove={this.handleDrag}
+                        onMouseUp={this.endDrag}
+                        onMouseLeave={this.endDrag}
+                        style={{ transform: `translateX(${this.props.imageCounter * -this.state.windowWidth + this.state.delta}px)`, transition: this.props.transition }}
                         className="sliderContainer"
                         ref='imageSlideshow'
                     >
@@ -99,29 +141,22 @@ export class ImageSlider extends Component {
                         className="fullscreenIcon"
                     />
 
-                    {/* <div className="dotsContainer">
+                    <div className="dotsContainer">
                         <ul>
-                            {this.props.images.map(item => {
+                            {this.props.images.map((item, index) => {
                                 return (
-                                    <li onClick={(() => {
-                                        this.setState(
-                                            {
-                                                dotCounter: this.state.data.images.indexOf(item),
-                                                imageCounter: this.state.data.images.indexOf(item) + 1,
-                                                transition: transition
-                                            }
-
-                                        )
+                                    <li key={index} onClick={(() => {
+                                        this.props.handleDotClick(index + 1, transition)
                                     })} >
                                         <ImageDot
-                                            isActive={this.state.data.images.indexOf(item) === this.state.dotCounter ? true : false}
+                                            isActive={index + 1 === this.props.imageCounter ? true : false}
                                         />
                                     </li>
                                 )
                             })}
 
                         </ul>
-                    </div> */}
+                    </div>
                 </div >
             )
         }
