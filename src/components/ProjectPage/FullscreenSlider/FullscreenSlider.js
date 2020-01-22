@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './FullscreenSlider.scss'
 import arrow from '../../../assets/svg/imageArrow.svg'
-import close from '../../../assets/svg/closeImage.svg'
+import close from '../../../assets/svg/imageClose.svg'
 
 const transition = 'transform 0.3s ease-in-out';
 

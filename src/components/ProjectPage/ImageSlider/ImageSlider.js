@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import arrow from '../../../assets/svg/imageArrow.svg'
-import fullscreen from '../../../assets/icons/slideshow/fullscreen.svg'
-import close from '../../../assets/icons/slideshow/close.svg'
+import fullscreen from '../../../assets/svg/imageFullscreen.svg'
 import { ImageDot } from '../../misc/ImageDot'
 
 const transition = `transform 0.3s ease-in-out`

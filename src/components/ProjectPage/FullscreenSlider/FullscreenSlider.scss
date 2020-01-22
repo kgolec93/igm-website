@@ -38,13 +38,15 @@
   }
   .arrow {
       position: absolute;
-      width: 48px;
+      width: 42px;
       height: auto;
       top: 50%;
       z-index: 103;
       border-radius: 50%;
-      transition: box-shadow 0.2s ease-in-out;
+      transition: box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+      opacity: 0.3;
       &:hover {
+          opacity: 1;
           cursor: pointer;
           box-shadow: 0px 0px 7px 2px #5a9fd48c;
       }
@@ -61,10 +63,16 @@
     position: absolute;
     width: 32px;
     top: 8px;
-    right: 16px;
+    right: 20px;
     z-index: 103;
+    border-radius: 50%;
+
+    transition: box-shadow 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    opacity: 0.3;
     &:hover {
-        cursor: pointer;
-    }
+      opacity: 1;
+      cursor: pointer;
+      box-shadow: 0px 0px 7px 2px #5a9fd48c;
+  }
   }
 }
