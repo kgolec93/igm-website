@@ -9,9 +9,9 @@ export class LandingPage extends Component {
         return (
             <div className='landing-page-container'>
                 <ImageSlideshow />
-                <div style={{minHeight: '100vh'}}>
+                {/* <div style={{minHeight: '100vh'}}>
 
-                </div>
+                </div> */}
             </div>
         )
     }

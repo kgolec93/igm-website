@@ -22,6 +22,9 @@
     .imagesCarousel {
       height: 100vh;
       display: flex;
+      &:hover {
+        cursor: pointer;
+      }
       .imageItem {
         min-width: 100vw;
         min-height: 100vh;

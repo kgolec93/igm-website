@@ -10,6 +10,9 @@ export class FullscreenSlider extends Component {
         super();
         this.state = {
             windowWidth: null,
+            initialX: 0,
+            delta: 0,
+            dragActive: false
         }
     }
 
@@ -26,7 +29,7 @@ export class FullscreenSlider extends Component {
         }, 500)
 
         this.setState({
-            windowWidth: window.innerWidth 
+            windowWidth: window.innerWidth
         })
 
         window.addEventListener('resize', this.resizeWindow, false)
@@ -40,12 +43,59 @@ export class FullscreenSlider extends Component {
         this.setState({ windowWidth: window.innerWidth })
     }
 
+
+    startDrag = (e) => {
+        e.preventDefault();
+        this.props.drag('none');
+        if (e.type === 'touchstart') {
+            this.setState({ initialX: e.touches[0].clientX, dragActive: true })
+        }
+        else {
+            this.setState({ initialX: e.clientX, dragActive: true })
+        }
+
+    }
+
+    handleDrag = (e) => {
+        if (this.state.dragActive) {
+            if (e.type === 'touchmove') {
+                this.setState({ delta: e.touches[0].clientX - this.state.initialX })
+            }
+            else {
+                this.setState({ delta: e.clientX - this.state.initialX })
+            }
+
+        }
+    }
+
+    endDrag = () => {
+        this.props.drag(transition);
+        if (this.state.delta > window.innerWidth / 8) {
+            this.props.slideImage('prev')
+        }
+        else if (this.state.delta < (window.innerWidth / 8) * -1) {
+            this.props.slideImage('next')
+        }
+        this.setState({ delta: 0, dragActive: false })
+    }
+
     render() {
         return (
             <div id='fullscreenSliderContainer'>
                 <div className="sliderFrame">
                     <div className="imagesCarousel"
-                        style={{ transform: `translateX(${this.props.imageCounter * -this.state.windowWidth}px)`, transition: this.props.transition }}
+
+                        onTouchStart={this.startDrag}
+                        onTouchMove={this.handleDrag}
+                        onTouchEnd={this.endDrag}
+                        onTouchCancel={this.endDrag}
+
+                        onMouseDown={this.startDrag}
+                        onMouseMove={this.handleDrag}
+                        onMouseUp={this.endDrag}
+                        onMouseLeave={this.endDrag}
+
+                        style={{ transform: `translateX(${this.props.imageCounter * -this.state.windowWidth + this.state.delta}px)`, transition: this.props.transition}}
                         ref='imageSlideshow'
                     >
 
