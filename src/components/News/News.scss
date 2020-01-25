@@ -1,0 +1,20 @@
+#newsMainContainer {
+    padding: 100px 32px;
+    width: 100%;
+    &>h1 {
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 100;
+    }
+    .postsContainer {
+        max-width: 800px;
+        margin: auto;
+        .item {
+            text-align: left;
+            .postTitle {
+                font-family: 'Quicksand', sans-serif;
+                font-size: 2.2rem;
+                font-weight: 100;
+            }
+        }
+    }
+}

@@ -15,6 +15,10 @@ export const data = [
         section: 'kontakt',
         url: '/kontakt'
     },
+    {
+        section: 'aktualności',
+        url: '/aktualnosci'
+    },
 ]
 
 export const testItems = [

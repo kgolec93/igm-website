@@ -107,7 +107,7 @@ export class FullscreenSlider extends Component {
 
                         {this.props.images.map((item, index) => {
                             return (
-                                <div className="imageItem">
+                                <div key={`imageLarge-${index}`} className="imageItem">
                                     <img src={item} alt={`images-${index}`} />
                                 </div>
                             )

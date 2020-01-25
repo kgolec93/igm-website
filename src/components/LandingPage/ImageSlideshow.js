@@ -121,20 +121,30 @@ export class ImageSlideshow extends Component {
 
     componentDidMount() {
         this.setState({ imageArray: [...images] })
-        window.addEventListener('resize', () => {
-            this.setState({ windowWidth: window.innerWidth })
-        })
+        window.addEventListener('resize', this.windowResize(), false)
 
-        this.refs.imageslideshow.addEventListener('transitionend', () => {
-            if (this.state.imageCounter === images.length) {
-                this.setState({
-                    imageCounter: 0,
-                    transition: 'none'
-                })
-            }
-        })
+        this.refs.imageslideshow.addEventListener('transitionend', this.transitionend(), false)
 
         this.interval = setInterval(() => this.counter(), transitionDelay)
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+        window.removeEventListener('resize', this.windowResize(), false)
+        window.removeEventListener('transitionend', this.transitionend(), false)
+    }
+
+    transitionend = () => {
+        if (this.state.imageCounter === images.length) {
+            this.setState({
+                imageCounter: 0,
+                transition: 'none'
+            })
+        }
+    }
+
+    windowResize = () => {
+        this.setState({ windowWidth: window.innerWidth })
     }
 
     pauseSlideshow = () => {
@@ -164,19 +174,14 @@ export class ImageSlideshow extends Component {
                 style={{ transform: `translateX(${this.state.imageCounter * -this.state.windowWidth}px)`, transition: this.state.transition }}
                 ref='imageslideshow'
             >
-                {this.state.imageArray.map(item => {
+                {this.state.imageArray.map((item, index) => {
                     return (
-                        <div className="imageslideshow-item">
+                        <div key={`slideritem-${index}`} className="imageslideshow-item">
                             <img
                                 src={item.src}
                                 alt={`sliderImage${images.indexOf(item)}`}
                                 key={uuidv1()}
                             />
-                            {/* <div className='detailsContainer'>
-                                <p>Kraków, Rynek Dębnicki</p>
-                                <p>2019-2020</p>
-                                <Link className='link' to='/projekty/test-url-1'>zobacz projekt ›</Link>
-                            </div> */}
                             <InfoWindow
                                 pauseSlideshow={this.pauseSlideshow}
                                 resumeSlideshow={this.resumeSlideshow}

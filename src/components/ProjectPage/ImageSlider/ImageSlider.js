@@ -108,9 +108,9 @@ export class ImageSlider extends Component {
                             />
                         </div>
                         {
-                            this.props.images.map(item => {
+                            this.props.images.map((item, index) => {
                                 return (
-                                    <div className="slideshowItem">
+                                    <div key={`imageSmall-${index}`}className="slideshowItem">
                                         <img
                                             style={{ width: `${this.state.windowWidth}px` }}
                                             src={item}
