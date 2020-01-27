@@ -1,20 +1,55 @@
 #newsMainContainer {
-    padding: 100px 32px;
-    width: 100%;
-    &>h1 {
-        font-family: 'Quicksand', sans-serif;
+  padding: 100px 32px;
+  width: 100%;
+  & > h1 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 100;
+  }
+  .postsContainer {
+    max-width: 800px;
+    margin: auto;
+    .spinnerWrapper {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      img {
+        transform-origin: center;
+        animation: spin 10s linear normal infinite;
+      }
+    }
+    .item {
+      text-align: left;
+      margin: 32px 0px;
+      .date {
+        font-family: "Quicksand", sans-serif;
+        color: rgb(196, 196, 196);
+      }
+      .postTitle {
+        font-family: "Quicksand", sans-serif;
+        font-size: 2.2rem;
         font-weight: 100;
+        width: 100%;
+        padding: 8px 0px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #2a2a2a;
+      }
+      p {
+        text-align: justify;
+      }
+      ul,
+      ol {
+        margin-left: 24px;
+      }
     }
-    .postsContainer {
-        max-width: 800px;
-        margin: auto;
-        .item {
-            text-align: left;
-            .postTitle {
-                font-family: 'Quicksand', sans-serif;
-                font-size: 2.2rem;
-                font-weight: 100;
-            }
-        }
-    }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(3600deg);
+  }
 }

@@ -3,6 +3,7 @@ import firebase from 'firebase'
 import './News.scss'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import moment from 'moment'
+import loaderSpinner from '../../assets/spinner.png'
 
 export class News extends Component {
     constructor() {
@@ -16,7 +17,7 @@ export class News extends Component {
         firebase.database().ref('posts/')
             .once('value').then((snapshot) => {
                 this.setState({
-                    posts: Object.keys(snapshot.val() || {}).map(
+                    posts: Object.keys(snapshot.val() || {}).reverse().map(
                         key => ({
                             ...snapshot.val()[key],
                             key: key,
@@ -31,9 +32,8 @@ export class News extends Component {
     render() {
         return (
             <div id='newsMainContainer'>
-                <h1>Aktualności</h1>
                 <div className="postsContainer">
-                    {this.state.posts !== '' &&
+                    {this.state.posts !== '' ?
                         this.state.posts.map((item, index) => {
                             return (
                                 <div className='item' key={`post-${index}`}>
@@ -42,7 +42,12 @@ export class News extends Component {
                                     {ReactHtmlParser(item.contentHTML)}
                                 </div>
                             )
-                        })}
+                        })
+                        :
+                        <div className="spinnerWrapper">
+                            <img src={loaderSpinner} alt="loading" />
+                        </div>
+                    }
                 </div>
             </div>
         )
