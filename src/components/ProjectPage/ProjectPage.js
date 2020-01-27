@@ -140,7 +140,10 @@ export class ProjectPage extends Component {
                         slideImage={this.slideImage}
                         transition={this.state.transition}
                         transitionEnd={this.transitionEnd}
+                        handleDotClick={(p, t)=>{this.setState({imageCounter: p, transition: t})}}
+
                         drag={(p)=>this.setState({transition: p})}
+                        
                     />
                 </CSSTransition>
 

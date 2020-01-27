@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './FullscreenSlider.scss'
 import arrow from '../../../assets/svg/imageArrow.svg'
-import close from '../../../assets/svg/closeImage.svg'
+import close from '../../../assets/svg/imageClose.svg'
+
+import { ImageDot } from '../../misc/ImageDot'
 
 const transition = 'transform 0.3s ease-in-out';
 
@@ -95,7 +97,7 @@ export class FullscreenSlider extends Component {
                         onMouseUp={this.endDrag}
                         onMouseLeave={this.endDrag}
 
-                        style={{ transform: `translateX(${this.props.imageCounter * -this.state.windowWidth + this.state.delta}px)`, transition: this.props.transition}}
+                        style={{ transform: `translateX(${this.props.imageCounter * -this.state.windowWidth + this.state.delta}px)`, transition: this.props.transition }}
                         ref='imageSlideshow'
                     >
 
@@ -105,7 +107,7 @@ export class FullscreenSlider extends Component {
 
                         {this.props.images.map((item, index) => {
                             return (
-                                <div className="imageItem">
+                                <div key={`imageLarge-${index}`} className="imageItem">
                                     <img src={item} alt={`images-${index}`} />
                                 </div>
                             )
@@ -139,6 +141,22 @@ export class FullscreenSlider extends Component {
                     className="close"
                     onClick={this.props.closeFullscreen.bind(this)}
                 />
+                <div className="dotsContainer">
+                    <ul>
+                        {this.props.images.map((item, index) => {
+                            return (
+                                <li key={index} onClick={(() => {
+                                    this.props.handleDotClick(index + 1, transition)
+                                })} >
+                                    <ImageDot
+                                        isActive={index + 1 === this.props.imageCounter ? true : false}
+                                    />
+                                </li>
+                            )
+                        })}
+
+                    </ul>
+                </div>
             </div>
         )
     }

@@ -18,6 +18,7 @@ import LoaderPage from './components/LoaderPage/LoaderPage';
 
 import mobileMenu from './assets/svg/hamburgerMenu.svg'
 import closeMenu from './assets/svg/closeMenu.svg'
+import News from './components/News/News';
 
 class Header extends Component {
   constructor() {
@@ -118,8 +119,8 @@ class App extends Component {
             <Route path="/kontakt">
               <Contact />
             </Route>
-            <Route path="/blog">
-              <p>blog</p>
+            <Route path="/aktualnosci">
+              <News />
             </Route>
             <Route path="/test">
               <LoaderPage />

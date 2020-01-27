@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import arrow from '../../../assets/svg/imageArrow.svg'
-import fullscreen from '../../../assets/icons/slideshow/fullscreen.svg'
-import close from '../../../assets/icons/slideshow/close.svg'
+import fullscreen from '../../../assets/svg/imageFullscreen.svg'
 import { ImageDot } from '../../misc/ImageDot'
 
 const transition = `transform 0.3s ease-in-out`
@@ -109,9 +108,9 @@ export class ImageSlider extends Component {
                             />
                         </div>
                         {
-                            this.props.images.map(item => {
+                            this.props.images.map((item, index) => {
                                 return (
-                                    <div className="slideshowItem">
+                                    <div key={`imageSmall-${index}`}className="slideshowItem">
                                         <img
                                             style={{ width: `${this.state.windowWidth}px` }}
                                             src={item}
