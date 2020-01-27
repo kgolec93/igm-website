@@ -37,7 +37,7 @@ export class News extends Component {
                         this.state.posts.map((item, index) => {
                             return (
                                 <div className='item' key={`post-${index}`}>
-                                    <p className="date">{moment(item.date).format('L')}</p>
+                                    <p className="date">Dodano {moment(item.date).format('L')}</p>
                                     <h2 className='postTitle'>{item.name}</h2>
                                     {ReactHtmlParser(item.contentHTML)}
                                 </div>
