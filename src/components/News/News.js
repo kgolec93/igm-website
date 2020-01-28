@@ -4,6 +4,8 @@ import './News.scss'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import moment from 'moment'
 import loaderSpinner from '../../assets/spinner.png'
+import { Jumbo } from '../Jumbo/Jumbo';
+import bgNews from '../../assets/sections/bg-news.jpg'
 
 export class News extends Component {
     constructor() {
@@ -32,6 +34,11 @@ export class News extends Component {
     render() {
         return (
             <div id='newsMainContainer'>
+                <Jumbo
+                    bgImage={bgNews}
+                    alt={'aktualności'}
+                    header={'Aktualności'}
+                />
                 <div className="postsContainer">
                     {this.state.posts !== '' ?
                         this.state.posts.map((item, index) => {

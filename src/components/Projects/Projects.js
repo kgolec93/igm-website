@@ -5,6 +5,7 @@ import { v1 as uuidv1 } from 'uuid'
 import { PortfolioItem } from './PortfolioItem';
 import { testItems } from '../../data'
 import { Parallax, Background } from 'react-parallax'
+import bgProjects from '../../assets/sections/bg-projects.JPG'
 
 export class Projects extends Component {
     constructor() {
@@ -24,35 +25,37 @@ export class Projects extends Component {
                 <Parallax
                     className="headers"
                     strength={200}
-                    bgImage={'https://www.digitalarch.pl/static/media/04.81ed863c.jpg'}
+                    bgImage={bgProjects}
                     bgImageAlt="pracownia architektoniczna wrocław"
                 >
                     <div className="contentWrapper">
-                        <h1>Nasze Projekty</h1>
-                        <div className="projectsFilteringNav">
-                            <p
-                                className={this.state.selected === 'all' ? 'selected' : null}
-                                onClick={() => this.selectFilter('all')}
+                        <div className="headerWhiteBar">
+                            <h1>Portfolio</h1>
+                            <div className="projectsFilteringNav">
+                                <p
+                                    className={this.state.selected === 'all' ? 'selected' : null}
+                                    onClick={() => this.selectFilter('all')}
 
-                            >
-                                wszystkie</p>
-                            <p className='not-clickable'>/</p>
-                            <p
-                                className={this.state.selected === 'housing' ? 'selected' : null}
-                                onClick={() => this.selectFilter('housing')}
-                            >mieszkaniowe</p>
-                            <p className='not-clickable'>/</p>
-                            <p
-                                className={this.state.selected === 'services' ? 'selected' : null}
-                                onClick={() => this.selectFilter('services')}
+                                >
+                                    wszystkie</p>
+                                <p className='not-clickable'>/</p>
+                                <p
+                                    className={this.state.selected === 'housing' ? 'selected' : null}
+                                    onClick={() => this.selectFilter('housing')}
+                                >mieszkaniowe</p>
+                                <p className='not-clickable'>/</p>
+                                <p
+                                    className={this.state.selected === 'services' ? 'selected' : null}
+                                    onClick={() => this.selectFilter('services')}
 
-                            >usługowe</p>
-                            <p className='not-clickable'>/</p>
-                            <p
-                                className={this.state.selected === 'commercial' ? 'selected' : null}
-                                onClick={() => this.selectFilter('commercial')}
+                                >usługowe</p>
+                                <p className='not-clickable'>/</p>
+                                <p
+                                    className={this.state.selected === 'commercial' ? 'selected' : null}
+                                    onClick={() => this.selectFilter('commercial')}
 
-                            >komercyjne</p>
+                                >komercyjne</p>
+                            </div>
                         </div>
                     </div>
 

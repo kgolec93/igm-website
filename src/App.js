@@ -19,6 +19,8 @@ import LoaderPage from './components/LoaderPage/LoaderPage';
 import mobileMenu from './assets/svg/hamburgerMenu.svg'
 import closeMenu from './assets/svg/closeMenu.svg'
 import News from './components/News/News';
+import Offer from './components/Offer'
+import { About } from './components/About/About';
 
 class Header extends Component {
   constructor() {
@@ -108,13 +110,13 @@ class App extends Component {
               <LandingPage />
             </Route>
             <Route path="/oferta">
-              <p>oferta</p>
+              <Offer />
             </Route>
             <Route exact path="/projekty">
               <Projects />
             </Route>
-            <Route path="/pracownia">
-              <p>pracownia</p>
+            <Route path="/o-nas">
+              <About />
             </Route>
             <Route path="/kontakt">
               <Contact />
