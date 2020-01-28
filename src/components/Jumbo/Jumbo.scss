@@ -32,3 +32,13 @@
         }
     }
 }
+
+@media only screen and (max-width: 720px) {
+    .jumboContainer {
+        h1 {
+            font-size: 3rem !important;
+            transform: translateY(10px) !important;
+
+        }
+    }
+}
