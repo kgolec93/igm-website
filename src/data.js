@@ -9,7 +9,7 @@ export const data = [
     },
     {
         section: 'o nas',
-        url: '/onas'
+        url: '/o-nas'
     },
     {
         section: 'kontakt',

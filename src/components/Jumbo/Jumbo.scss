@@ -1,0 +1,44 @@
+.jumboContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .contentWrapper {
+        width: 100vw;
+        height: 550px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 144px;
+        padding-top: 60px;
+        .headerBar {
+            width: 80%;
+            background-color: white;
+            position: absolute;
+            bottom: 32px;
+            right: 0px;
+            h1 {
+                margin-right: 8px;
+                text-align: right;
+                font-family: 'Sulphur Point', sans-serif;
+                font-size: 4.5rem;
+                transform: translateY(17px);
+                line-height: 1;
+                color: #2a2a2a;
+                font-weight: 100;
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .jumboContainer {
+        h1 {
+            font-size: 3rem !important;
+            transform: translateY(10px) !important;
+
+        }
+    }
+}
