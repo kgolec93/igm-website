@@ -26,7 +26,7 @@ export class PortfolioItem extends Component {
                     <div className="portfolioItemOverlay">
                         <div className="textWrapper">
                             <p>{this.props.name}</p>
-                            <p>{this.props.type}</p>
+                            <p>{this.props.year}</p>
                         </div>
                     </div>
                 </Link>

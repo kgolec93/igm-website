@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import { Switch, Route, NavLink } from 'react-router-dom'
-import { data, testItems } from './data';
+import { data, testItems, projects } from './data';
 import Helmet from 'react-helmet'
 import LandingPage from './components/LandingPage/LandingPage'
 import Projects from './components/Projects/Projects'
@@ -13,7 +13,7 @@ import mailIcon from './assets/icons/misc/mail.svg'
 import homeIcon from './assets/icons/misc/home.svg'
 import { Contact } from './components/Contact/Contact';
 
-import logoBK from './assets/logo-bk.svg'
+import IGM_Logo_Full from './assets/IGM_Logo_Full.png'
 import LoaderPage from './components/LoaderPage/LoaderPage';
 
 import mobileMenu from './assets/svg/hamburgerMenu.svg'
@@ -26,9 +26,27 @@ class Header extends Component {
   constructor() {
     super();
     this.state = {
-      mobileMenuOpen: false
+      mobileMenuOpen: false,
+      isOnTop: true
     }
   }
+
+  componentDidMount() {
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset < 80) {
+        if (this.state.isOnTop === false) {
+          this.setState({ isOnTop: true })
+        }
+
+      }
+      else {
+        if (this.state.isOnTop === true) {
+          this.setState({ isOnTop: false })
+        }
+      }
+    })
+  }
+
   render() {
     return (
       <header>
@@ -37,13 +55,16 @@ class Header extends Component {
           className="logoContainer"
           onClick={() => this.setState({ mobileMenuOpen: false })}
         >
-          <img src={logoBK} alt="igm-logo" />
-          <p>IGM_Architekci</p>
+          <img
+            className={this.state.isOnTop ? '' : 'shrink'}
+            src={IGM_Logo_Full}
+            alt="IGM Architekci"
+          />
         </NavLink>
         <nav className='desktopMenu'>
-          {data.map(item => {
+          {data.map((item, index) => {
             return (
-              <NavLink key={uuidv1()} className='nav-link' activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
+              <NavLink key={index} className='nav-link' activeClassName='header-nav-active' to={item.url}>{item.section}</NavLink>
             )
           })}
         </nav>
@@ -82,11 +103,11 @@ const Footer = () => {
       <ul>
         <li>
           <img src={mailIcon} alt="mail" />
-          <a href='mailto:biuro@igmarchitekci.pl'>biuro@igmarchitekci.pl</a>
+          <a href='mailto:biuro@igmarch.pl'>biuro@igmarch.pl</a>
         </li>
         <li>
           <img src={phoneIcon} alt="phone" />
-          <a href='tel:+48696696696'>+48 606 606 606</a>
+          <a href='tel:+48717804128'>71 780 41 28</a>
         </li>
         <li>
           <img src={homeIcon} alt="home" />
@@ -127,10 +148,10 @@ class App extends Component {
             <Route path="/test">
               <LoaderPage />
             </Route>
-            {testItems.map(item => {
+            {projects.map(item => {
               return (
                 <Route key={item.url} path={`/projekty/${item.url}`}>
-                  <ProjectPage url={item.url} data={item.name} />
+                  <ProjectPage url={item.url} data={item} />
                 </Route>
               )
             })}

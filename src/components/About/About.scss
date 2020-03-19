@@ -62,20 +62,18 @@
       }
 
       .headerBar {
-        // width: 40%;
-        padding-left: 128px;
-        background-color: white;
+        border-bottom: 1px solid #f5f5f5;
+        border-top: 1px solid #f5f5f5;
         position: absolute;
         bottom: 32px;
         right: 0px;
         h1 {
           margin-right: 8px;
           text-align: right;
-          font-family: "Sulphur Point", sans-serif;
+          font-family: "Raleway", sans-serif;
           font-size: 4.5rem;
-          transform: translateY(17px);
           line-height: 1;
-          color: #2a2a2a;
+          color: #f5f5f5;
           font-weight: 100;
         }
       }

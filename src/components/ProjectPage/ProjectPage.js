@@ -41,7 +41,7 @@ export class ProjectPage extends Component {
     slideImage = (payload) => {
         if (payload === `prev`) {
             if (this.state.imageCounter === 0) {
-                this.setState({ transition: transition, imageCounter: images.length })
+                this.setState({ transition: transition, imageCounter: this.props.data.images.length })
             }
             else {
                 this.setState({ transition: transition, imageCounter: this.state.imageCounter - 1 })
@@ -50,7 +50,7 @@ export class ProjectPage extends Component {
 
 
         else if (payload === `next`) {
-            if (this.state.imageCounter === images.length + 1) {
+            if (this.state.imageCounter === this.props.data.images.length + 1) {
                 this.setState({ transition: transition, imageCounter: 1 })
             }
             else {
@@ -89,17 +89,17 @@ export class ProjectPage extends Component {
                     <div className="wrapper">
                         <div className="projectText">
                             <div className="titleContainer">
-                                <h1>{testProject.name}</h1>
-                                <h2>{testProject.location}</h2>
+                                <h1>{this.props.data.name}</h1>
+                                <h2>{this.props.data.location}</h2>
                             </div>
                             <div className="descritpionContainer">
 
                                 <hr />
-                                <p><span className="italic">inwestor: &nbsp;</span>{testProject.investor}</p>
-                                <p><span className="italic">projekt: &nbsp;</span>{testProject.projectDate}</p>
-                                <p><span className="italic">realizacja: &nbsp;</span>{testProject.buildingDate}</p>
+                                <p><span className="italic">inwestor: &nbsp;</span>{this.props.data.investor}</p>
+                                <p><span className="italic">projekt: &nbsp;</span>{this.props.data.projectDate}</p>
+                                <p><span className="italic">realizacja: &nbsp;</span>{this.props.data.buildingDate}</p>
                                 <p className="descritpion">
-                                    {testProject.descritpion}
+                                    {this.props.data.descritpion}
                                 </p>
                             </div>
 
@@ -110,7 +110,7 @@ export class ProjectPage extends Component {
 
                     <div className="projectImages">
                         <ImageSlider
-                            images={images}
+                            images={this.props.data.images}
                             openFullscreen={this.openFullscreen}
 
                             imageCounter={this.state.imageCounter}
@@ -133,7 +133,7 @@ export class ProjectPage extends Component {
                     timeout={300}
                 >
                     <FullscreenSlider
-                        images={images}
+                        images={this.props.data.images}
                         closeFullscreen={this.closeFullscreen}
 
                         imageCounter={this.state.imageCounter}
