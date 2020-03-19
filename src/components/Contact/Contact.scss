@@ -29,14 +29,16 @@
             flex-direction: column;
             justify-content: center;
             .logoContainer {
-                display: flex;
-                align-items: center;
+
                 img {
-                    height: 64px;
+                    height: 128px;
+                    float: right;
+                    margin-bottom: 24px;
                 }
                 h1 {
                     margin-left: 16px;
-                    font-family: 'Sulphur Point', sans-serif;
+                    font-family: 'Raleway', sans-serif;
+                    font-weight: 300;
                 }
             }
             p {
