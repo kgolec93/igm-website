@@ -3,6 +3,9 @@ import { LogoSvg } from '../LogoSvg/LogoSvg'
 import './LoaderPage.scss'
 
 export class LoaderPage extends Component {
+    componentDidMount(){
+        setTimeout(this.props.isPlayed, 10000)
+    }
     render() {
         return (
             <div className='loaderContainer'>

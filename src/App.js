@@ -120,6 +120,13 @@ const Footer = () => {
 }
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isIntroPlayed: false
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -127,7 +134,11 @@ class App extends Component {
         <main>
           <Switch>
             <Route exact path="/">
-              {/* <LoaderPage /> */}
+              {this.state.isIntroPlayed ?
+                null
+                :
+                <LoaderPage isPlayed={()=>this.setState({isIntroPlayed: true})}/>               
+              }
               <LandingPage />
             </Route>
             <Route path="/oferta">
