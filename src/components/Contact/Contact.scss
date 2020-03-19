@@ -1,13 +1,14 @@
 .contactContainer {
     display: flex;
-    padding-top: 70px;
-    padding-bottom: 100px;
+    padding-top: 60px;
+    padding-bottom: 54px;
     &>div{
         flex: 1;
         // border: 1px dotted red;
     }
-    width: 90vw;
+    width: 100%;
     align-items: center;
+    justify-content: space-between;
     .dataContainer {
         text-align: left;
         display: flex;
@@ -15,15 +16,15 @@
         height: 100%;
         align-items: center;
         position: relative;
-        &::after {
-            content: '';
-            width: 1px;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            right: 32px;
-            background-color: #a7a7a7;
-        }
+        // &::after {
+        //     content: '';
+        //     width: 1px;
+        //     height: 100%;
+        //     position: absolute;
+        //     top: 0;
+        //     right: 32px;
+        //     background-color: #a7a7a7;
+        // }
         .items {
             flex-direction: column;
             justify-content: center;
@@ -49,9 +50,8 @@
     }
     .mapContainer {
         background-color: #333;
-        height: 70%;
+        height: 100%;
         width: 100%;
-        border-radius: 12px;
         overflow: hidden;
         #map {
             height: 100%;

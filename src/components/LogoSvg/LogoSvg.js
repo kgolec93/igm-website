@@ -3,11 +3,11 @@ import './LogoSvg.scss'
 
 export class LogoSvg extends Component {
     componentDidMount() {
-        setTimeout(()=>{
-            console.log(this.refs.line01.getTotalLength())
-            console.log(this.refs.line02.getTotalLength())
-            console.log(this.refs.line03.getTotalLength())
-        }, 300)
+        // setTimeout(()=>{
+        //     console.log(this.refs.line01.getTotalLength())
+        //     console.log(this.refs.line02.getTotalLength())
+        //     console.log(this.refs.line03.getTotalLength())
+        // }, 300)
     }
 
     render() {

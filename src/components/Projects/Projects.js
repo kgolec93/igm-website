@@ -4,6 +4,7 @@ import FlipMove from 'react-flip-move';
 import { v1 as uuidv1 } from 'uuid'
 import { PortfolioItem } from './PortfolioItem';
 import { testItems } from '../../data'
+import { projects } from '../../data'
 import { Parallax, Background } from 'react-parallax'
 import bgProjects from '../../assets/sections/bg-projects.JPG'
 
@@ -70,28 +71,28 @@ export class Projects extends Component {
                         appearAnimation='elevator'
                     >
                         {this.state.selected === 'all' ?
-                            testItems.map((item) => {
+                            projects.map((item, index) => {
                                 return (
                                     <PortfolioItem
-                                        key={`itemKey${testItems.indexOf(item)}`}
-                                        name={item.name}
-                                        type={item.type}
+                                        key={index}
+                                        name={item.portfolioName}
+                                        year={item.portfolioYear}
                                         url={item.url}
-                                        image={item.image}
+                                        image={item.images[0]}
                                     />
                                 )
                             })
                             :
-                            testItems.filter(i => {
-                                return i.type === this.state.selected
-                            }).map((item) => {
+                            projects.filter(i => {
+                                return i.portfolioType === this.state.selected
+                            }).map((item, index) => {
                                 return (
                                     <PortfolioItem
-                                        key={`itemKey${testItems.indexOf(item)}`}
-                                        name={item.name}
-                                        type={item.type}
+                                    key={index}
+                                        name={item.portfolioName}
+                                        year={item.portfolioYear}
                                         url={item.url}
-                                        image={item.image}
+                                        image={item.images[0]}
                                     />
                                 )
                             })
